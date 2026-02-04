@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Templating</h2>
+
+		<div id="bsp1"></div>
+		<div id="bsp2"></div>
+		<div id="bsp3"></div>
+
+		<script id="kunden" type="text/template">
+			<table border="1">
+				{{#.}}
+					<tr>
+						<td>{{vn}}</td>
+						<td>{{nn}}</td>
+						<td>{{plz}}</td>
+						<td>{{ort}}</td>
+					</tr>
+				{{/.}}
+			</table>
+		</script>
+
+		<script id="cars" type="text/template">
+			<table border="1">
+				{{#.}}
+					<tr>
+						<td>{{marke}}</td>
+						<td>
+							<ul>
+								{{#modell}}
+									<li>{{.}}</li>
+								{{/modell}}
+							</ul>
+						</td>
+						<td>
+							<ul>
+								{{#info}}
+									<li>{{.}}</li>
+								{{/info}}
+							</ul>
+						</td>
+					</tr>
+				{{/.}}
+			</table>
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
+
+		<script>
+
+			var data = [
+				{vn:'Susi', nn:'Meyer', plz:50000, ort:'Köln'},
+				{vn:'Otto', nn:'Müller', plz:40000, ort:'Düsseldorf'},
+				{vn:'Karl', nn:'Schmitz', plz:20000, ort:'Hamburg'},
+			];
+
+			var template = $('#kunden').html();
+			var html = Mustache.render(template, data);
+			$('#bsp1').html(html + '<br/>');
+
+			// ----------------------------------------------------------------------------
+
+			var cars = [
+				{
+					marke  : 'Opel', 
+					modell : ['Adam', 'Ascona', 'Corsa', 'Kadett'],
+					info   : ['Toller Adam', 'Toller Ascona', 'Toller Corsa', 'Toller Kadett']
+				},
+				{ 
+					marke  : 'VW', 
+					modell : ['Polo', 'Golf', 'Passat'],
+					info   : ['Toller Polo', 'Toller Golf', 'Passat']
+				},
+				{
+					marke  : 'BMW', 
+					modell : ['116er', '316er', '2er' ],
+					info   : ['Toller 116er', 'Toller 316er', 'Toller 2er']
+				},
+				{ 
+					marke  : 'Ford', 
+					modell : ['Capri', 'Fiesta', 'Fusion' ],
+					info   : ['Toller Capri', 'Toller Fiesta', 'Toller Fusion']
+				},
+				{ 
+					marke  : 'Fiat', 
+					modell : ['Punto', '500' ],
+					info   : ['Toller Punto', 'Toller 500']
+				},
+				{ 
+					marke  : 'Audi', 
+					modell : ['A3', 'A4', 'TT' ],
+					info   : ['Toller A3', 'Toller A4', 'Toller TT']
+				}
+			];
+
+			var template = $('#cars').html();
+			var html = Mustache.render(template, cars);
+			$('#bsp2').html(html + '<br/>');
+			
+			// ----------------------------------------------------------------------------
+
+			$.when(
+				$.ajax('kunden.tpl'),
+				$.ajax('kunden.json')
+			).done(function(tpl, data){
+				var html = Mustache.render(tpl[0], data[0]);
+				$('#bsp3').html(html);
+			});
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Templating</h2>
+
+		<div id="bsp1"></div>
+		<div id="bsp2"></div>
+		<div id="bsp3"></div>
+
+		<script id="personTpl" type="text/template">
+			<h3>{{firstName}} {{{lastName}}}</h3>
+			Blog : <a href="{{blogURL}}">Wikipedia</a>
+		</script>
+
+		<script id="einkauf" type="text/template">
+			<ul>
+				{{#penny}}
+				<li>{{.}}</li>
+				{{/penny}}
+			</ul>
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
+
+		<script>
+
+			var person = {
+				firstName : 'Max',
+				lastName  : '<u>Mustermann</u>',
+				blogURL   : 'https://www.wikipedia.de'
+			}
+
+			// html wird nicht interpretiert
+			var template1 = '<h3>{{firstName}} {{lastName}}</h3>Blog: {{blogURL}}';
+			// html wird interpretiert
+			var template2 = '<h3>{{firstName}} {{{lastName}}}</h3>Blog: {{blogURL}}';
+
+			var html = Mustache.render(template2, person);
+			$('#bsp1').html(html);
+
+			// ---------------------------------------------------------------------------
+
+			var template = $('#personTpl').html();
+			var html = Mustache.render(template, person);
+			$('#bsp2').html(html);
+
+			//----------------------------------------------------------------------------
+
+			var data = {
+				penny : ['Getränke', 'Quark', 'Butter', 'Brot', 'Käse', 'Kaffee']
+			};
+
+			var template = $('#einkauf').html();
+			var html = Mustache.render(template, data);
+			$('#bsp3').html(html);
+
+		</script>
+
+	</body>
+
+</html>

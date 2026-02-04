@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#auto {position:relative;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Animation</h2>
+
+		<img id="auto" src="auto.jpg" />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			var weg = 0;
+
+			setInterval(function(){
+
+				weg += 5;
+				$('#auto').css({left:weg+'px'});
+				if(weg > 600){
+					weg = 0;
+				}
+
+			}, 40);  // 1000/25 = 40 entspricht 25 Bilder pro Sekunde
+
+
+		</script>
+
+	</body>
+
+</html>

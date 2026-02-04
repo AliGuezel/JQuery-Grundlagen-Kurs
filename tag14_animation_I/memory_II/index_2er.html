@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="description"/>
+		<meta name="keywords" content="keywords"/>
+		<meta name="author" content="author"/>
+		<title>Website Template: Light (demo)</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" media="screen"/>
+		<style>
+			#memory {margin-left:150px;}
+			#memory img {width:90px; height:65px; cursor:pointer;}
+			#memory #msg {font-size:2em;}
+			#memory #neu {cursor:pointer;}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="navigation">
+
+				<div class="title">
+					<h1>Memory</h1>
+					<h2>- bright and smooth -</h2>
+				</div>
+
+				<a href="#">Vestibulum</a>
+				<a href="#">Suspendisse</a>
+				<a href="#">Elemen</a>
+				<a href="#">Maecenas</a>
+				<div class="clearer"><span></span></div>
+
+			</div>
+
+			<div class="holder_top"></div>
+
+			<div class="holder">
+
+				<div id="memory">
+					<table>
+						<tr>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+						</tr>
+						<tr>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+						</tr>
+						<tr>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+						</tr>
+						<tr>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+							<td><img src="img/autos/deckel.jpg" /></td>
+						</tr>
+					</table>
+					<br/>
+					<div id="msg">Memory</div>
+					<br/>
+					<button id="neu">Neuses Spiel</button>
+				</div>
+
+				<br/><br/>
+
+			</div>
+
+			<div class="footer">
+				<div class="left">&copy; 2017 <a href="#">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a></div>
+				<div class="right">
+					<a href="http://templates.arcsin.se/">Website template</a> by <a href="https://arcsin.se/">Arcsin</a>
+				</div>
+				<div class="clearer">&nbsp;</div>
+			</div>
+
+		</div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <script>
+
+			Array.prototype.shuffle = function(){
+				return this.sort(function(){return Math.random()-0.5});
+			}
+
+			var karten = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7];
+			karten.shuffle();
+
+			var klickzaehler = 0;
+			var historie = [];
+			var versuche = 0;
+			var warten = false;
+
+			$('#neu').on('click', function(){
+
+				karten.shuffle();
+				$('#memory img').attr({src:'img/autos/deckel.jpg'});
+				$('#msg').html('Memory');
+				klickzaehler = 0;
+				historie = [];
+				versuche = 0;
+				warten = false;
+
+			});
+
+			$('#memory img').on('click', function(){
+
+				// Auf welche Karte wurde geklickt
+				var nr = $('#memory img').index(this);
+
+				// Gültiger Klick: Wurde auf das Deckelbild geklickt?
+				var deckel = $(this).attr('src');
+
+				// Wenn ja, dann ist es ein gültiger Klick
+				if(deckel == 'img/autos/deckel.jpg' && warten == false){
+
+					// Mitzählen der Klickreihenfolge
+					historie[klickzaehler] = nr;
+					klickzaehler++;
+
+					// Umdrehen der verdeckten Karte
+					$(this).attr({src:'img/autos/'+karten[nr]+'.jpg'});
+
+					// Auswertung
+					if(klickzaehler == 2){
+						
+						var klick1 = historie[0];
+						var klick2 = historie[1];
+
+						// Die Kartem müssen umgedreht werden wenn sie nicht zueinander passen
+						if(karten[klick1] != karten[klick2]){
+							
+							warten = true;
+
+							window.setTimeout(function(){
+								$('#memory img').eq(klick1).attr({src:'img/autos/deckel.jpg'});
+								$('#memory img').eq(klick2).attr({src:'img/autos/deckel.jpg'});
+								warten = false;
+							}, 3000);
+
+						}
+
+						klickzaehler = 0;
+						versuche++;
+						$('#msg').html(versuche + ' Versuche');
+
+					}
+
+				}
+
+			});
+
+        </script>
+
+	</body>
+
+</html>

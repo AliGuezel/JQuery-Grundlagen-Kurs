@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Funktionen</h2>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+            /**********************************************************************************
+                globale Variablen
+            **********************************************************************************/
+
+            var zahl  = 42;                                   // Number (Zahl)
+            var str   = '<h2>Heute ist Dienstag</h2>';        // String (Zeichenkette)
+            var wahr  = true;                                 // Boolean (Wahrheitswert)
+            var edeka = ['Brot', 'Butter', 'Käse'];           // Array
+            var adr   = {vn:'Susi', nn:'Meyer', ort:'Köln'};  // Object
+            var fun   = function(){ return 4711; }            // Function 
+
+            /**********************************************************************************
+                Funktionen
+            **********************************************************************************/
+
+			// Einfache Funktionen
+            function bremen(){
+                var liste = '<ul>';
+                liste += '<li>Stadtmusikanten</li>';
+                liste += '<li>Schnoor Viertel</li>';
+                liste += '<li>Marktplatz</li>';
+                liste += '</ul>';
+                document.getElementById('ausgabe').innerHTML += liste; 
+            }
+
+			// Funktionen mit Übergabe(n)
+			function penny(susi, karl, otto){
+				var liste = '<ul>';
+				liste += '<li>'+susi+'</li>';
+				liste += '<li>'+karl+'</li>';
+				liste += '<li>'+otto+'</li>';
+				liste += '</ul>';
+				document.getElementById('ausgabe').innerHTML += liste;
+			}
+
+			// Funktionen mit Übergabe(n) und Rückgabe
+			function headline(size, text){
+				return '<h'+size+'>'+text+'</h'+size+'>';
+			}
+
+			function mal(x,y){
+				return x*y;
+			}
+
+            /**********************************************************************************
+                Hauptprogramm
+            **********************************************************************************/
+
+			bremen();
+		
+			penny('Brot', 'Butter', 'Käse');
+			penny('Cola', 'Fanta', 'Sprite');
+
+			// Datentypen entstehen entweder durch eine direkte Zuordnung
+			// oder durch die Rückgabe einer Funktion
+
+			var html = headline(3, 'Funktionen');
+			document.getElementById('ausgabe').innerHTML += html;
+
+			var ergebnis = mal(5,4);
+			document.getElementById('ausgabe').innerHTML += ergebnis + '<br/>';
+
+			document.getElementById('ausgabe').innerHTML += mal(3,2) + '<br/>';
+
+			document.getElementById('ausgabe').innerHTML += mal( 4, mal(2,2) ) + '<br/>';
+
+			$.each(edeka, function(key, value){
+				document.getElementById('ausgabe').innerHTML += value + '<br/>';
+			});
+
+
+		</script>
+
+	</body>
+
+</html>

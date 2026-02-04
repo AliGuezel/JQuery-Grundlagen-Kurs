@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Kino</h2>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			$.ajax({
+				url : 'kino.xml',
+				success : function(doc){
+
+					var html = '';
+
+					$('kino', doc).each(function(){
+						html += '<h2>'+$(this).attr('name')+'</h2>';
+						html += '<table border="1">';
+						$(this).find('programm').each(function(){
+							html += '<tr>';
+							html += '<td>'+$(this).find('zeit').text()+'</td>';
+							html += '<td>'+$(this).find('film').text()+'</td>';
+							html += '<td>'+$(this).find('prod').text()+'</td>';
+							html += '</tr>';
+						});
+						html += '</table>';
+					});
+
+					$('#ausgabe').html(html + '<hr/>');
+
+				}
+			});
+
+			// ------------------------------------------------------------------------------
+
+			$.ajax({
+				url : 'kino.xml',
+				success : function(doc){
+
+					var anzahlKino = $('kino', doc).length;
+
+					var html = '';
+					for(var n=0; n<anzahlKino; n++){
+						html += '<h2>'+$('kino',doc).eq(n).attr('name')+'</h2>';
+						html += '<table border="1">';
+						var anzahlProgramm = $('kino', doc).eq(n).find('programm').length;
+						for(var x=0; x<anzahlProgramm; x++){
+							html += '<tr>';
+							html += '<td>'+$('kino', doc).eq(n).find('programm').eq(x).find('zeit').text()+'</td>';
+							html += '<td>'+$('kino', doc).eq(n).find('programm').eq(x).find('film').text()+'</td>';
+							html += '<td>'+$('kino', doc).eq(n).find('programm').eq(x).find('prod').text()+'</td>';
+							html += '</tr>';
+						}
+						html += '</table>';
+					}
+
+					$('#ausgabe').append(html);
+
+				}
+			});
+
+		</script>
+
+	</body>
+
+</html>

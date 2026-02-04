@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+
+			.clear {clear:both;}
+
+			#sortable1, #sortable2, #database {
+				border:1px solid #aaa;
+				width:140px;
+				min-height:20px;
+				list-style-type: none;
+				margin: 0 10px 0 0;
+				padding: 5px 0 0 0;
+				float:left;
+			}
+
+			#sortable1 li, #sortable2 li, #database li {
+				margin:0 5px 5px 5px;
+				padding:5px;
+				font-size: 1.25em;
+				width:120px;
+				cursor:pointer;
+			}
+
+			#sortable1 li {background: lightgreen;}
+			#sortable2 li {background: lightblue;}
+			#database li {background: #aaa;}
+
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Drag and Drop / Sortable</h2>
+
+		<ul id="sortable1" class="connectSortable">
+			<li data-otto="A1">A item 1</li>
+			<li data-otto="A2">A item 2</li>
+			<li data-otto="A3">A item 3</li>
+			<li data-otto="A4">A item 4</li>
+			<li data-otto="A5">A item 5</li>
+			<li data-otto="A6">A item 6</li>
+			<li data-otto="A7">A item 7</li>
+			<li data-otto="A8">A item 8</li>
+		</ul>
+
+		<ul id="sortable2" class="connectSortable">
+			<li data-otto="B1">B item 1</li>
+			<li data-otto="B2">B item 2</li>
+			<li data-otto="B3">B item 3</li>
+			<li data-otto="B4">B item 4</li>
+			<li data-otto="B5">B item 5</li>
+			<li data-otto="B6">B item 6</li>
+			<li data-otto="B7">B item 7</li>
+			<li data-otto="B8">B item 8</li>
+		</ul>
+
+		<ul id="database" class="connectSortable"></ul>
+
+		<div class="clear"></div>
+		<br/><br/>
+		<button id="reset">Reset</button>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+		<script>
+
+			var cache1 = $('#sortable1').html();
+			var cache2 = $('#sortable2').html();
+			var cache3 = $('#database').html();
+			
+			$('#sortable1').sortable({connectWith: '#database'});
+			$('#sortable2').sortable({connectWith: '#database'});
+
+			$('#database').sortable();
+
+			$('#reset').on('click', function(){
+				$('#sortable1').html(cache1);
+				$('#sortable2').html(cache2);
+				$('#database').html(cache3);
+			});
+
+		</script>
+
+	</body>
+
+</html>

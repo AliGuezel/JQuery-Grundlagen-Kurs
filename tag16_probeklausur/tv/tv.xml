@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tv>
+
+    <sender name="ARD">
+
+        <programm>
+            <zeit>20.15</zeit>
+            <titel>ARD 1</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+        <programm>
+            <zeit>21.00</zeit>
+            <titel>ARD 2</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+        <programm>
+            <zeit>22.00</zeit>
+            <titel>ARD 3</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+    </sender>
+
+    <sender name="ZDF">
+
+        <programm>
+            <zeit>20.15</zeit>
+            <titel>ZDF 1</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+        <programm>
+            <zeit>21.00</zeit>
+            <titel>ZDF 2</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+       </programm>
+
+        <programm>
+            <zeit>22.00</zeit>
+            <titel>ZDF 3</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+       </programm>
+
+    </sender>
+
+    <sender name="RTL">
+
+        <programm>
+            <zeit>20.15</zeit>
+            <titel>RTL 1</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+        <programm>
+            <zeit>21.00</zeit>
+            <titel>RTL 2</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+        <programm>
+            <zeit>22.00</zeit>
+            <titel>RTL 3</titel>
+            <genre>KRIMI</genre>
+            <sparte>SPIELFILM</sparte>
+        </programm>
+
+    </sender>
+
+</tv>

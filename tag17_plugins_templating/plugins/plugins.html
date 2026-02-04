@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Plugins</h2>
+
+		<ul>
+			<li class="foo">AAAA</li>
+			<li class="foo">BBBB</li>
+			<li class="foo">CCCC</li>
+			<li class="foo">DDDD</li>
+		</ul>
+
+		<ul>
+			<li class="bar">1111</li>
+			<li class="bar">2222</li>
+			<li class="bar">3333</li>
+			<li class="bar">4444</li>
+		</ul>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			console.dir($);
+			console.dir(window.$);
+			console.dir(window.jQuery);
+
+			jQuery('#ausgabe').append('jQuery<br/>');
+
+			console.dir(jQuery.fn);
+
+			// Chaining
+			$('#ausgabe').append('Inhalt<br/>');
+			$('#ausgabe').css({color:'#f00'});
+
+			$('.bar').eq(0)
+					 .html('Inhalt')
+					 .css({color:'#00f'});
+
+			// SCHRITT 1
+			// einfachste Form eines Plugins
+			// nicht optimal: Nicht gekapselt, kein Chaining, keine Parameter
+			jQuery.fn.rot = function(){
+				this.css({color:'#f00'})
+			}
+
+			// SCHRITT 2
+			// Verkettetes (chain) Plugin
+			// nicht optimal: Nicht gekapselt, keine Parameter
+			jQuery.fn.blau = function(){
+				this.css({color:'#00f'});
+				return this;
+			}
+
+			// SCHRITT 3
+			// Plugin mit Chaining und Parametern
+			// nicht optimal: Nicht gekapselt
+			jQuery.fn.farbe = function(susi, otto){
+				this.css({color:susi, background:otto});
+				return this;
+			}
+
+			// ------------------- siehe kapselung.html -------------------
+
+			// SCHRITT 4
+			// Plugin mit Chaining, Parametern und Kapselung
+			// nicht optimal: keine individuellen Parameter
+
+			;(function($){
+
+				$.fn.headline = function(size, txt){
+					this.append('<h'+size+'>'+txt+'</h'+size+'>');
+					return this;
+				}
+
+				$.fn.myText = function(txt){
+					this.append(txt);
+					return this;
+				}
+
+			})(jQuery);
+
+			// SCHRITT 5
+			// Optimales Plugin
+
+			;(function($){
+
+				$.fn.bestOf = function(obj){
+
+					if(arguments.length == 0) { obj = {}; }
+
+					var defaults = {
+						fg : '#888',
+						bg : '#ddd',
+						fs : '1em',
+						pa : '10px'
+					};
+
+					var werte = $.extend(defaults, obj);
+
+					this.css({
+						color      : werte.fg,
+						background : werte.bg,
+						fontSize   : werte.fs,
+						padding    : werte.pa
+					});
+
+					return this;
+
+				}
+
+			})(jQuery);
+
+
+			$('.bar').eq(1).rot();
+
+			$('.bar').eq(2).blau().html('Content');
+
+			$('.bar').eq(3).farbe('#0f0', '#ff0').html('Inhalt');
+
+			$('#ausgabe').headline(3, 'jQuery Plugins').myText('Hallo myText').css({color:'#777'});
+
+			$('.foo').eq(1).bestOf();
+			$('.foo').eq(2).bestOf({fg:'#f00', bg:'#ff0'});
+			$('.foo').eq(3).bestOf({fs:'24px', pa:'20px', fg:'#0f0'});
+
+		</script>
+
+	</body>
+
+</html>

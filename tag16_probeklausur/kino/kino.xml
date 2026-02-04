@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cinema>
+
+    <kino name="Theater 1">
+
+        <programm>
+            <zeit>17.00</zeit>
+            <film>Film 1</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>20.00</zeit>
+            <film>Film 2</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>22.00</zeit>
+            <film>Film 3</film>
+            <prod>Paramount</prod>
+        </programm>
+
+    </kino>
+
+    <kino name="Theater 2">
+
+        <programm>
+            <zeit>17.00</zeit>
+            <film>Film 1</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>20.00</zeit>
+            <film>Film 2</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>22.00</zeit>
+            <film>Film 3</film>
+            <prod>Paramount</prod>
+        </programm>
+
+    </kino>
+
+    <kino name="Theater 3">
+
+        <programm>
+            <zeit>17.00</zeit>
+            <film>Film 1</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>20.00</zeit>
+            <film>Film 2</film>
+            <prod>Disney</prod>
+        </programm>
+
+       <programm>
+            <zeit>22.00</zeit>
+            <film>Film 3</film>
+            <prod>Paramount</prod>
+        </programm>
+
+    </kino>
+
+</cinema>

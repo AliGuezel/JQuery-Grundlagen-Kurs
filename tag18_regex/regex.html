@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Reguläre Ausdrücke / RegEx</h2>
+
+		<form action="daten.php" method="post">
+			<input type="text" placeholder="Name" name="name" /><br/>
+			<input type="text" placeholder="Ort" name ="ort" /><br/>
+			<input type="text" placeholder="Email" name="email" pattern="^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}$" required="required"/><br/><br/>
+			
+			<input type="submit" value="Senden" />
+
+		</form>
+
+		<hr/>
+
+		<script>
+
+			var eingabe = 'Der Otto trinkt Kaffee';
+			var pattern = /Otto/;
+
+			var erg1 = eingabe.match(pattern);
+			var erg2 = eingabe.search(pattern);
+			var erg3 = eingabe.replace(pattern, 'Karl');
+
+			document.write('match()   : ' + erg1 + '<br/>');  // gefunden : Otto         - nicht gefunden : null
+			document.write('search()  : ' + erg2 + '<br/>');  // gefunden : 4 (Position) - nicht gefunden : -1
+			document.write('replace() : ' + erg3 + '<br/>');  // gefunden : Der Karl...  - nicht gefunden : Der Otto...
+
+			document.write('<hr/>');
+
+			// Allgemein
+			// document.write( 'Otto trinkt Kaffee'.match(/affe/) + '<br/>' );       // affe
+			// document.write( 'Der kaffeetrinkende Otto'.match(/affe/) + '<br/>' ); // affe
+
+			// ^ von Anfang an
+			// document.write( 'Otto trinkt Kaffee'.match(/^Otto/) + '<br/>' );      // Otto
+			// document.write( 'Der kaffeetrinkende Otto'.match(/^Otto/) + '<br/>'); // null
+
+			// $ am Ende
+			// document.write( 'Otto trinkt Kaffee'.match(/Otto$/) + '<br/>' );      // null
+			// document.write( 'Der kaffeetrinkende Otto'.match(/Otto$/) + '<br/>'); // Otto
+
+			// . Ersatzzeichen
+			// document.write( 'cut'.match(/c.t/) + '<br/>' );    // cut
+			// document.write( 'cat'.match(/c.t/) + '<br/>' );    // cat
+			// document.write( 'c t'.match(/c.t/) + '<br/>' );    // c t
+			// document.write( 'r t'.match(/c.t/) + '<br/>' );    // null
+			// document.write( '14 ct'.match(/c.t/) + '<br/>' );  // null
+
+			// \ Escape (Metazeichen) ausmaskieren
+			// document.write( 'Betrag $520.00'.match(/\$520\.00/) + '<br/>' ); // $520.00
+			// document.write( 'Betrag $520x00'.match(/\$520\.00/) + '<br/>' ); // null
+
+			// \d	Ziffern
+			// \D	keine Ziffern
+			// \w	Alphanumerische Zeichen abc...z ABC...Z 0...9
+			// \W	Nichtalphanumerische Zeichen (Umlaute und Sonderzeichen)
+
+			// document.write( '14.12.2022'.match(/^\d\d\.\d\d\.\d\d\d\d$/) + '<br/>' ); // 14.12.2022
+
+			// [] Zeichenklassen
+			// document.write( 'I cut my hand'.match(/c[aeiou]t/) + '<br/>' );  // cut
+			// document.write( 'The crazy cat'.match(/c[aeiou]t/) + '<br/>' );  // cat
+			// document.write( 'What cart?'.match(/c[aeiou]t/) + '<br/>' );     // null
+			// document.write( '14 ct Gold'.match(/c[aeiou]t/) + '<br/>' );     // null
+
+				// ^ Negation
+				// document.write( 'I cut my hand'.match(/c[^aeiou]t/) + '<br/>' );  // null
+				// document.write( 'The crazy cat'.match(/c[^aeiou]t/) + '<br/>' );  // null
+				// document.write( 'What cart?'.match(/c[^aeiou]t/) + '<br/>' );     // null
+				// document.write( '14 ct Gold'.match(/c[^aeiou] /) + '<br/>' );     // ct
+
+				// - Bindestrich
+				// document.write( 'Es sind 9% zu zahlen.'.match(/[123456789]%/) + '<br/>' ); // 9%
+				// document.write( 'Es sind 5% zu zahlen.'.match(/[1-9]%/) + '<br/>' );       // 9%
+				// document.write( 'Dec, 24th'.match(/[0-3][0-9]th/) + '<br/>' );		// 24th
+				// document.write( 'cat'.match(/c[a-z]t/) + '<br/>' );        // cat
+				// document.write( 'cAt'.match(/c[a-zA-Z]t/) + '<br/>' );     // cAt
+				// document.write( 'c9t'.match(/c[a-zA-Z0-9]t/) + '<br/>' );  // c9t
+				// document.write( 'cüt'.match(/c[a-zA-Z0-9üöäÜÖÄß]t/) + '<br/>' );   // cüt
+				// document.write( 'c t'.match(/c[a-zA-Z0-9üöäÜÖÄß]t/) + '<br/>' );   // null
+				// document.write( 'c t'.match(/c[a-zA-Z0-9üöäÜÖÄß ]t/) + '<br/>' );  // c t
+
+			// | Alternativen
+			// document.write( 'Der Hund läuft rum'.match(/Hund|Kater/) + '<br/>' );		 // Hund
+			// document.write( 'Der Tiger läuft rum'.match(/Hund|Kater|Tiger/) + '<br/>' ); // Tiger
+			// document.write( 'Der Löwe läuft rum'.match(/Hund|Kater|Tiger/) + '<br/>' );  // null
+
+			// Quantifizierer
+			// ?      0 oder einmal
+			// *      0 oder mehrmals
+			// +      einmal oder mehrmals
+			// {n}    Genau n-mal
+			// {n,}   mindestens n-mal
+			// {n,m}  mindestens n-mal aber nicht mehr als m-mal
+
+			// document.write( 'cat'.match(/ca+t/) + '<br/>' );  // cat
+			// document.write( '14 ct Gold'.match(/14 ca?t/) + '<br/>' );  // 14 ct
+			// document.write( 'caaaat'.match(/ca*t/) + '<br/>' );  // caaaat
+			// document.write( 'caat'.match(/ca{2}t/) + '<br/>' );  // caat
+			// document.write( 'caut'.match(/c[au]{2}t/) + '<br/>' );  // caut
+			// document.write( 'cuat'.match(/c[au]{2}t/) + '<br/>' );  // cuat
+
+			// () Subpattern
+			// document.write( 'Das Faultier'.match(/D(as|ie) (Faultier|Katze)/) + '<br/>' ); // Das Faultier,as,Faultier
+			// document.write( 'Die Katze'.match(/D(as|ie) (Faultier|Katze)/) + '<br/>' );    // Die Katze,ie,Katze
+			// document.write( 'VW Golf'.match(/VW (Golf|Polo)/) + '<br/>' ); // VW Golf,Golf
+			// document.write( 'VW Polo'.match(/VW (Golf|Polo)/) + '<br/>' ); // VW Polo,Polo
+
+			// Modifier
+			// i  case-insensitive
+			// g global
+
+			document.write( 'Otto trinkt Kaffee. Otto trinkt Tee'.replace('Otto', 'Fritz') + '<br/>' );
+			// ---> Fritz trinkt Kaffee. Otto trinkt Tee  // Nur das erste Vorkommen
+			
+			document.write( 'Otto trinkt Kaffee. Otto trinkt Tee'.replace(/Otto/, 'Fritz') + '<br/>' );
+			// ---> Fritz trinkt Kaffee. Otto trinkt Tee  // Nur das erste Vorkommen
+
+			document.write( 'Otto trinkt Kaffee. Otto trinkt Tee'.replace(/Otto/g, 'Fritz') + '<br/>' );
+			// ---> Fritz trinkt Kaffee. Fritz trinkt Tee  // alle Vorkommen
+			
+			document.write( 'OtTo trinkt Kaffee. OTtO trinkt Tee'.replace(/Otto/ig, 'Fritz') + '<br/>' );
+			// ---> Fritz trinkt Kaffee. Fritz trinkt Tee  // alle Vorkommen
+
+			var email = 'otto.meyer@t-online.de';
+			var regEmail = /^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}$/;
+
+			document.write( email.match(regEmail) + '<br/>');  // otto.meyer@t-online.de
+
+			// Autokennzeichen
+            // BAM-AA 1234
+            // B-DS 123
+            // PLÖ-N 12E
+            // BAM-AA 12H
+
+			var kfz = 'PLÖ-N 12E';
+			var regKfz = /^[A-ZÜÖÄ]{1,3}\-[A-Z]{1,2} [1-9][0-9]{0,3}H?E?$/;
+
+			document.write( kfz.match(regKfz) + '<br/>' );
+
+		</script>
+
+	</body>
+
+</html>

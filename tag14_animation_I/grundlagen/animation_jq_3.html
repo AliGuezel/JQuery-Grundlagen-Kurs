@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#auto {position:relative;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Animation</h2>
+
+		<div id="info">Start</div>
+		<img id="auto" src="auto.jpg" />
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+		<script>
+
+			/********************************************************************************************
+				.animate( properties [, duration] [, easing], [, complete] )
+
+				duration = 400
+				easing   = 'swing'  https://easings.net/de
+
+			********************************************************************************************/
+
+			function endlos(){
+
+				$('#info').html('Start RECHTS');
+				$('#auto').animate({left:300}, 4000, 'easeInOutCubic', function(){
+					$('#info').append(' UNTEN');
+				});
+
+				$('#auto').animate({top:300}, 4000, 'easeInOutCubic', function(){
+					$('#info').append(' LINKS');
+				});
+
+				$('#auto').animate({left:0}, 4000, 'easeInOutCubic', function(){
+					$('#info').append(' OBEN');
+				});
+
+				$('#auto').animate({top:0}, 4000, 'easeInOutCubic', function(){
+					endlos();
+				});
+
+			}
+
+			endlos();
+
+		</script>
+
+	</body>
+
+</html>

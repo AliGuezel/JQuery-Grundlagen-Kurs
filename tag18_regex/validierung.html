@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			input {margin:2px;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Validierung</h2>
+
+        <form action="daten.php" method="post" onsubmit="return validierung();">
+        
+            <input type="text" placeholder="Vor- und Nachname" name="name" /><br/>
+            <input type="text" placeholder="Email" name="email" /><br/>
+            <input type="text" placeholder="PLZ" name="plz" size="4" />
+            <input type="text" placeholder="Ort" name="ort" size="11" /><br/>
+            <input type="text" placeholder="Straße" name="str" size="11" />
+            <input type="text" placeholder="Hausnr" name="hnr" size="4" /><br/>
+            <input type="text" placeholder="Telefon" name="tel" /><br/>
+            <input type="text" placeholder="Kennzeichenwunsch" name="pkw" /><br/>
+        
+            <input type="submit" value="Senden" />
+
+        </form>
+
+		<script>
+
+			function validierung(){
+				
+                var borderOK = '2px solid #ccc';
+                var borderFALSE = '2px solid #f00';
+
+                var name  = document.getElementsByName('name')[0];
+                var email = document.getElementsByName('email')[0];
+                var plz   = document.getElementsByName('plz')[0];
+                var ort   = document.getElementsByName('ort')[0];
+                var str   = document.getElementsByName('str')[0];
+                var hnr   = document.getElementsByName('hnr')[0];
+                var tel   = document.getElementsByName('tel')[0];
+                var pkw   = document.getElementsByName('pkw')[0];
+
+				name.style.border = borderOK;
+                email.style.border = borderOK;
+                plz.style.border = borderOK;
+                ort.style.border = borderOK;
+                str.style.border = borderOK;
+                hnr.style.border = borderOK;
+                tel.style.border = borderOK;
+                pkw.style.border = borderOK;
+
+                var regName  = /^[a-züöäß]{2,} [a-züöäß]{2,}$/i;
+				var regEmail = /^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}$/;
+                var regPlz   = /^[0-9]{5}$/;
+                var regOrt   = /^[a-züöäß]{2,}$/i;
+                var regStr   = /^[a-züöäß]{2,}$/i;
+                var regHnr   = /^[1-9][0-9]{0,3} ?[a-z0-9\-\/]{0,4}$/;
+                var regTel   = /^\+?[0-9 \/\-\(\)]{4,}$/;
+                var regPkw   = /^[A-ZÜÖÄ]{1,3}\-[A-Z]{1,2} [1-9][0-9]{0,3}H?E?$/;
+
+				var ok = true;
+
+				if(name.value.match(regName)   == null){ok=false; name.style.border=borderFALSE;}
+				if(email.value.match(regEmail) == null){ok=false; email.style.border=borderFALSE;}
+				if(plz.value.match(regPlz) == null){ok=false; plz.style.border=borderFALSE;}
+                if(ort.value.match(regOrt) == null){ok=false; ort.style.border=borderFALSE;}
+                if(str.value.match(regStr) == null){ok=false; str.style.border=borderFALSE;}
+                if(hnr.value.match(regHnr) == null){ok=false; hnr.style.border=borderFALSE;}
+                if(tel.value.match(regTel) == null){ok=false; tel.style.border=borderFALSE;}
+                if(pkw.value.match(regPkw) == null){ok=false; pkw.style.border=borderFALSE;}
+
+				return ok;
+
+			}
+
+		</script>
+
+	</body>
+
+</html>
