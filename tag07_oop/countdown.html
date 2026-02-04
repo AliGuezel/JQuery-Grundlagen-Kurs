@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#zeit {text-align: center; font-size:24px;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Date</h2>
+
+		<p id="zeit"></p>
+
+		<script>
+
+			// Aktuelles Jahr
+			var jahr = new Date().getFullYear();
+
+			// Objektname = new Date(Jahr, Monat, Tag, Std, Min, Sek);
+			var ablauf = new Date(jahr, 11, 24, 17, 0, 0).getTime() / 1000;
+
+			function xmas(){
+
+				// Der jetzige Zeitpunkt in Sekunden
+				var jetzt = new Date().getTime() / 1000;
+
+				// Differenz zwischen Ablauf und Jetzt
+				var diff = ablauf - jetzt;
+
+				// Zeitberechnung für Tage, Stunden, Minuten und Sekunden
+				var tage     = Math.floor( diff / (3600 * 24) );
+				var stunden  = Math.floor( diff % (3600 * 24) / 3600 );
+				var minuten  = Math.floor( (diff % 3600) / 60 );
+				var sekunden = Math.floor( diff % 60 );
+
+				var ausgabe = `Noch ${tage} Tage ${stunden} Stunden ${minuten} Minuten und ${sekunden} Sekunden bis Weihnachten`;
+				document.getElementById('zeit').innerHTML = ausgabe;
+			}
+
+			xmas();
+			setInterval(xmas, 1000);
+
+		</script>
+
+	</body>
+
+</html>

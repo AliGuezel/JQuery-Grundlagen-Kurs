@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Datentypen und Kombinatoriken</h2>
+
+		<script>
+
+			var mwst = 19; 										// NUMBER
+			var film = '<h3>Die "Schöne" und das Biest<h3>'; 	// STRING
+			var wahr = true;									// BOOLEAN
+			var auto = ['BMW', 'Opel', 'Seat', 'Benz', 'Audi'];	// ARRAY
+			var car  = {hersteller:'Opel', typ:'Corsa', ps:60};	// OBJECT
+			var bonn = function(){ return 'Bonn'; }				// FUNCTION
+
+			/********************************************************************************
+				K O M B I N A T O R I K E N
+			********************************************************************************/
+
+			// ARRAY IM ARRAY
+			var arrayImArray = [ [], [], [], [], [] ];
+			var bspA = [ [11,22,33], [44,55,66], [77,88,99] ];
+
+			// OBJEKT IM ARRAY +++
+			var objektImArray = [ {}, {}, {} ];
+			var bspB = [ {vn:'Susi', nn:'Meyer'}, {vn:'Tina', nn:'Müller'}, {vn:'Otto', nn:'Schmitz'} ];
+
+			// OBJEKT IM OBJEKT
+			var objektImObjekt = { foo:{}, bar:{}, doo:{} };
+			var bspC = { foo:{plz:40000}, bar:{plz:50000}, doo:{plz:60000} };
+
+			// ARRAY IM OBJEKT
+			var arrayImObjekt = { aaa:[], bbb:[], ccc:[] };
+			var bspD = { aaa:[11,22,33], bbb:[44,55,66], ccc:[77,88,99] };
+
+			/********************************************************************************
+				A U S G A B E
+			********************************************************************************/
+
+			document.write( bspA[2][1] + '<br/>' );  // 88
+
+			document.write( bspB[1].vn + ' ' + bspB[1].nn + '<br/>' );        // Tina Müller
+			document.write( bspB[0]['vn'] + ' ' + bspB[0]['nn'] + '<br/>' );  // Susi Meyer
+
+			document.write( bspC.foo.plz + '<br/>');       // 40000
+			document.write( bspC['bar'].plz + '<br/>');    // 50000
+			document.write( bspC['doo']['plz'] + '<br/>'); // 60000
+
+			document.write( bspD.bbb[1] + '<br/>');    // 55
+			document.write( bspD['bbb'][1] + '<br/>'); // 55
+
+		</script>
+
+	</body>
+
+</html>

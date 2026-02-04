@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Iterationen</h2>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			var cars = [ 
+				{
+					marke  : 'Opel', 
+					modell : ['Adam', 'Ascona', 'Corsa', 'Kadett'], 
+					info   : ['Toller Adam', 'Toller Ascona', 'Toller Corsa', 'Toller Kadett']
+				}, 
+				{
+					marke  : 'VW',
+					modell : ['Polo', 'Golf', 'Passat'],
+					info   : ['Toller Polo', 'Toller Golf', 'Toller Passat']
+				}, 
+				{
+					marke  : 'BMW',
+					modell : ['116er', '316er', '2er'],
+					info   : ['Toller 116er', 'Toller 316er', 'Toller 2er']
+				}, 
+				{
+					marke  : 'Ford',
+					modell : ['Capri', 'Fiesta', 'Fusion'],
+					info   : ['Toller Capri', 'Toller Fiesta', 'Toller Fusion']
+				}, 
+				{	
+					marke  : 'Fiat',
+					modell : ['Punto', '500'],
+					info   : ['Toller Punto', 'Toller 500']
+				},
+				{
+					marke  : 'Audi',
+					modell : ['A3', 'A4', 'TT'],
+					info   : ['Toller A3', 'Toller A4', 'Toller TT']
+				}
+			];
+
+
+			var html = '<table border="1">';
+			// Beginn Schleife
+			html += '<tr>';
+			html += '<td>Opel</td>';
+			html += '<td>';
+			html += '<ul>';
+				// Beginn Schleife
+				html += '<li>Adam</li>';
+				html += '<li>Ascona</li>';
+				// Ende Schleife
+			html += '</ul>';
+			html += '</td>';
+			html += '<td>';
+			html += '<ul>';
+				// Beginn Schleife
+				html += '<li>Toller Adam</li>';
+				html += '<li>Toller Ascona</li>';
+				// Ende Schleife
+			html += '</ul>';
+			html += '</td>';
+			html += '</tr>';
+			// Ende Schleife
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			for(var r=0; r<cars.length; r++){
+				html += '<tr>';
+				html += '<td>'+cars[r].marke+'</td>';
+				html += '<td>';
+				html += '<ul>';
+					for(var n=0; n<cars[r].modell.length; n++){
+						html += '<li>'+cars[r].modell[n]+'</li>';
+					}
+				html += '</ul>';
+				html += '</td>';
+				html += '<td>';
+				html += '<ul>';
+					for(var n=0; n<cars[r].info.length; n++){
+						html += '<li>'+cars[r].info[n]+'</li>';
+					}
+				html += '</ul>';
+				html += '</td>';
+				html += '</tr>';
+			}
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			$.each(cars, function(key, value){
+				html += '<tr>';
+				html += '<td>'+value.marke+'</td>';
+				html += '<td>';
+				html += '<ul>';
+					$.each(value.modell, function(key, value){
+						html += '<li>'+value+'</li>';
+					});
+				html += '</ul>';
+				html += '</td>';
+				html += '<td>';
+				html += '<ul>';
+					$.each(value.info, function(key, value){
+						html += '<li>'+value+'</li>';
+					});
+				html += '</ul>';
+				html += '</td>';
+				html += '</tr>';
+			});
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			$.each(cars, function(){
+				html += '<tr>';
+				html += '<td>'+this.marke+'</td>';
+				html += '<td>';
+				html += '<ul>';
+					$.each(this.modell, function(){
+						html += '<li>'+this+'</li>';
+					});
+				html += '</ul>';
+				html += '</td>';
+				html += '<td>';
+				html += '<ul>';
+					$.each(this.info, function(){
+						html += '<li>'+this+'</li>';
+					});
+				html += '</ul>';
+				html += '</td>';
+				html += '</tr>';
+			});
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+		</script>
+
+	</body>
+
+</html>

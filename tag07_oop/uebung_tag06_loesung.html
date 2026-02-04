@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Tolle Webseite</title>
+    </head>
+
+    <body>
+
+        <h2>Objekte</h2>
+
+        <script>
+
+            var mwst  = 19;										 // NUMBER
+			var film  = '<h3>Die "Schöne" und Biest</h3>';		 // STRING
+			var wahr  = true;									 // BOOLEAN
+			var autos = ['BMW', 'Opel', 'Seat', 'Benz'];		 // ARRAY
+			var car   = {hersteller:'Opel', typ:'Corsa', ps:60}; // OBJECT
+			var bonn  = function(){document.write('Bonn');};     // FUNCTION
+
+
+            // https://wiki.selfhtml.org/wiki/JavaScript
+
+
+ 			// Gebe die Wurzel von 2 aus.
+            document.write(Math.SQRT2 + '<br/>');
+			document.write(Math.sqrt(2) + '<br/>');
+           
+            // Gebe den String als Großbuchstaben aus. 
+            var beispiel = 'Heute ist Dienstag';
+            document.write( beispiel.toUpperCase() + '<br/>');
+
+			// Gebe den ersten Buchstaben eines Strings aus.
+			var beispiel = 'Das ist ein toller String!';
+			document.write(beispiel.at(0) + '<br/>');
+			document.write(beispiel.charAt(0) + '<br/>');
+			document.write(beispiel.slice(0,1) + '<br/>');
+			document.write(beispiel.substring(0,1) + '<br/>');
+			document.write(beispiel.substr(0,1) + '<br/>');
+
+  			// Gebe den letzten Buchstaben eines Strings aus.
+            var beispiel = 'Das ist ein toller String?';
+			document.write(beispiel.at(beispiel.length-2) + '<br/>');
+			document.write(beispiel.charAt(beispiel.length-2) + '<br/>');
+			document.write(beispiel.slice(-2,-1) + '<br/>');
+			document.write(beispiel.substring(beispiel.length-2, beispiel.length-1) + '<br/>');
+			document.write(beispiel.substr(beispiel.length-2, 1) + '<br/>');
+
+			var letzter = beispiel.lastIndexOf('');
+			document.write(letzter + '<br/>');
+			document.write(beispiel.substr(letzter-2,1) + '<br/>');
+
+			document.write('<hr/>');
+
+			// Sortiere das Array alphabetisch.
+			var beispiel = ['Wurst', 'Butter', 'Bier', 'Brot'];
+			document.write(beispiel + '<br/>');
+			beispiel.sort();
+			document.write(beispiel + '<br/>');
+
+			// ACHTUNG numerische Sortierung
+			var beispiel = [10,9,8,7,6,5,4,3,2,1,11,111];
+			document.write(beispiel + '<br/>');
+			beispiel.sort(function(x,y){return x-y;});
+			document.write(beispiel + '<br/>');
+
+			// Füge dem Array über eine Methode Käse hinzu.
+			var beispiel = ['Wurst', 'Butter', 'Bier', 'Brot'];
+			document.write(beispiel + '<br/>');
+			//beispiel[4] = 'Käse';  // Ungünstig bei variablen Längen
+			beispiel[beispiel.length] = 'Käse';
+			document.write(beispiel + '<br/>');
+
+			beispiel.push('Kaffee');
+			document.write(beispiel + '<br/>');
+			beispiel.unshift('Anfang');
+			document.write(beispiel + '<br/>');
+
+			// Ersetze den Bindestrich gegen ein Hash(Raute).
+			var beispiel = 'Lorem ipsum -dolor sit -amet, -consectetuer adipiscing elit.';
+			beispiel = beispiel.replaceAll('-', '#');
+			document.write(beispiel + '<br/>');
+
+			var beispiel = 'Lorem ipsum -dolor sit -amet, -consectetuer adipiscing elit.';
+			beipiel = beispiel.replace(/-/g, '#');
+			document.write(beipiel + '<br/>');
+
+			// Wandel den String in ein Array wobei jedes Wort zu einen Arrayelement wird.
+			var beispiel = 'Mittwoch 14.04.2019 12:00';
+			var arr = beispiel.split(' ');
+			document.write(arr[0] + '<br/>');
+			document.write(arr[1] + '<br/>');
+			document.write(arr[2] + '<br/>');
+
+			// Gebe eine Zufallszahl zwischen 1 und 10 aus
+			var zufall =  Math.floor(Math.random() * 10) + 1;
+			document.write( zufall + '<br/>');
+
+        </script>
+
+    </body>
+
+</html>

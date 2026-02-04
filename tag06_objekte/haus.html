@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Objekte</h2>
+
+		<script>
+
+			var zahl  = 42;										// NUMBER
+			var str   = '<h3>Heute ist Montag</h3>';			// STRING
+			var wahr  = true;									// BOOLEAN
+			var edeka = ['Brot', 'Butter', 'Käse', 'Kaffee'];	// ARRAY
+			var adr   = {vn:'Susi', nn:'Meyer', ort:'Köln'};	// OBJECT
+			var foo   = function(){ return 1234; };				// FUNCTION
+
+			console.dir(this);  // window scope
+
+			var haus = {
+				ort : 'Berlin', 
+				str : 'Kudamm', 
+				aufschliessen : function(){document.write('Das Haus in '+this.ort+' wird aufgeschlossen.<br/>'); console.log('Haus', this) },
+				abschliessen  : function(){document.write('Das Haus wird abgeschlossen.<br/>');},
+				keller     : {},
+				bad        : {},
+				wohnzimmer : {
+					hoehe   : 2.80,
+					groesse : 40,
+					chillen : function(){document.write('Chillen im Wohnzimmer.<br/>');},
+					lesen   : function(){document.write('Lesen im Wohnzimmer');},
+					tv      : {
+						display : 'OLED',
+						groesse : 60,
+						ein : function(){document.write('TV '+haus.wohnzimmer.tv.groesse+' einschalten.<br/>');},
+						um  : function(){document.write('TV '+this.groesse+' umschalten.<br/>'); console.log('TV', this) },
+						aus : function(){document.write('TV '+this.groesse+' ausschalten.<br/>');}
+					},
+					essecke : {
+						anzahl  : 6,
+						groesse : 10,
+						trinken : function(){document.write('Trinken in des Essecke.<br/>');},
+						essen   : function(){document.write('Essen in der Essecke.<br/>');}
+					}
+				}
+			};
+
+			haus.aufschliessen();
+			haus.wohnzimmer.essecke.trinken();
+			document.write(haus.str+'<br/>');
+			document.write(haus.wohnzimmer.essecke.anzahl+'<br/>');
+			haus.wohnzimmer.tv.ein();
+			haus.wohnzimmer.tv.um();
+			haus.wohnzimmer.tv.aus();
+
+		</script>
+
+	</body>
+
+</html>

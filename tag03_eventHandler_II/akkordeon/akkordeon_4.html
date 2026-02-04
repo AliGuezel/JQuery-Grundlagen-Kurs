@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			.akkordeon {width:300px;}
+			
+			.akkordeon div {
+				height:50px;
+				border:1px solid #aaa;
+				margin:2px;
+				cursor:pointer;
+				background: #eee;
+			}
+
+			.akkordeon .eins {height:100px;}
+
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Akkordeon</h2>
+
+		<div class="akkordeon">
+
+			<div class="eins">EINS</div>
+			<div class="zwei">ZWEI</div>
+			<div class="drei">DREI</div>
+			<div class="vier">VIER</div>
+			<div class="fuenf">FÜNF</div>
+
+		</div>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+
+			var head = ['EINS', 'ZWEI', 'DREI', 'VIER', 'FÜNF'];
+			var text = [
+				'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis',
+				'Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.',
+				'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica.',
+				'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
+				'Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, '
+			];
+
+
+			$('.akkordeon div').eq(0).html(text[0]);
+
+			$('.akkordeon div').on('click', function(){
+
+				var numof = $('.akkordeon div').index(this); // Nummer des geklickten Elements
+
+				$('.akkordeon div').css({height:'50px'});
+				$(this).css({height:'100px'});  // this ist das Element, auf welches geklickt wurde
+				
+				$('.akkordeon div').eq(0).html(head[0]);
+				$('.akkordeon div').eq(1).html(head[1]);
+				$('.akkordeon div').eq(2).html(head[2]);
+				$('.akkordeon div').eq(3).html(head[3]);
+				$('.akkordeon div').eq(4).html(head[4]);
+
+				$('.akkordeon div').eq(numof).html(text[numof]);
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

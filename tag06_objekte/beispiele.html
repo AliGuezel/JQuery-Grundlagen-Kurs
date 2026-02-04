@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Beispiele</h2>
+
+		<script>
+
+			// https://wiki.selfhtml.org/wiki/JavaScript
+
+			var zahl  = 42;										// NUMBER
+			var str   = '<h3>Heute ist Montag</h3>';			// STRING
+			var wahr  = true;									// BOOLEAN
+			var edeka = ['Brot', 'Butter', 'Käse', 'Kaffee'];	// ARRAY
+			var adr   = {vn:'Susi', nn:'Meyer', ort:'Köln'};	// OBJECT
+			var foo   = function(){ return 1234; };				// FUNCTION
+
+			// SCREEN
+			document.write(screen.height + '<br/>');
+			document.write(screen.width + '<br/>');
+
+			// MATH
+			document.write(Math.PI + '<br/>');
+			document.write(Math.sqrt(9) + '<br/>');
+			document.write(Math.random() + '<br/>');
+
+			// ARRAY
+			document.write(edeka.length + '<br/>');
+			document.write(edeka.sort() + '<br/>');
+
+			// ascending
+			var zahlen = [27, 2, 10, 4, 42, 7];
+			document.write(zahlen.sort(function(a,b){return a-b;}) + '<br/>');
+
+			// descending
+			var zahlen = [27, 2, 10, 4, 42, 7];
+			document.write(zahlen.sort(function(a,b){return (a>b ? -1 : 1);}) + '<br/>');
+
+			var zahlen = [1,2,3,4,5,6,7,8,9,10];
+			document.write(zahlen.reverse() + '<br/>');
+
+			document.write('<hr/>');
+
+			// NUMBER
+			var preis = 3.2658087;
+			document.write(preis.toFixed(2) + '<br/>');
+			document.write(Math.round(preis*100) / 100 + '<br/>');
+
+			// STRING
+			document.write(str.length + '<br/>');
+			document.write(str.substr(14,6) + '<br/>');
+
+			var back = 'Rückwärts';
+			var ausgabe = back.split('').reverse().join('').toUpperCase();
+			document.write(ausgabe + '<br/>');
+
+		</script>
+
+	</body>
+
+</html>

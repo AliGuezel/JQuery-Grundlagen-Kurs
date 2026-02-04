@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>jQuery</h2>
+		<h2>Zweite Überschrift</h2>
+
+		<!-- 
+
+			Unkompremierte Variante (Development)
+			<script src="jquery-3.6.1.js"></script>
+
+			Kompremierte Variante (Production)
+			<script src="jquery-3.6.1.min.js"></script>
+
+			Einbinden über CDN (Content Delivery Network)
+			z.B. Google
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+			z.B. Microsoft
+			<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.6.0.js"></script>
+
+		-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+
+			document.getElementsByTagName('h2')[0].innerHTML = 'JS traditionell';
+
+			// $(SELEKTOR).machWAS().nochWAS();
+
+			$('h2').eq(1).html('Ausgabe mit jQuery');
+
+		</script>
+
+	</body>
+
+</html>

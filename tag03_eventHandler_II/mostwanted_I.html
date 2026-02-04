@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			td {cursor:pointer;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2 id="head">Mostwanted</h2>
+
+		<ol id="liste" type="A" start="10">
+			<li>1111</li>
+			<li>2222</li>
+			<li>3333</li>
+			<li>4444</li>
+			<li>5555</li>
+		</ol>
+
+		<button id="button">OK</button><br/><br/>
+
+		<table class="tabelle" border="1">
+			<tr>
+				<td class="anzahl">Reihe 1 Spalte 1</td>
+				<td class="nummer">Reihe 1 Spalte 2</td>
+				<td>Reihe 1 Spalte 3</td>
+				<td>Reihe 1 Spalte 4</td>
+			</tr>
+			<tr>
+				<td>Reihe 2 Spalte 1</td>
+				<td>Reihe 2 Spalte 2</td>
+				<td>Reihe 2 Spalte 3</td>
+				<td>Reihe 2 Spalte 4</td>
+			</tr>
+			<tr>
+				<td>Reihe 3 Spalte 1</td>
+				<td>Reihe 3 Spalte 2</td>
+				<td>Reihe 3 Spalte 3</td>
+				<td>Reihe 3 Spalte 4</td>
+			</tr>
+			<tr>
+				<td>Reihe 4 Spalte 1</td>
+				<td>Reihe 4 Spalte 2</td>
+				<td>Reihe 4 Spalte 3</td>
+				<td>Reihe 4 Spalte 4</td>
+			</tr>
+		</table><br/><br/>
+
+		<form action="#" method="get">
+			<input id="aaa" type="radio" name="item" checked="checked"> Item 1<br/>
+			<input id="bbb" type="radio" name="item" /> Item 2<br/><br/>
+			<input id="eingabe" type="text" placeholder="Eingabe" value="Otto" />
+			<input type="submit" value="OK" />
+		</form>
+
+		<br/><hr/><br/>
+
+		<div id="msg"></div>
+		<hr/>
+		<div id="info"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+			
+			var a = 'Heute ist Mittwoch'; 		// STRING
+			var b = 4711;						// NUMBER
+			var c = true;						// BOOLEAN
+			var d = [11,22,33,44,55];			// ARRAY
+			var e = {a:11, b:22, c:33, d:44};	// OBJECT
+			var f = function(){return 1234;};	// FUNCTION
+
+			/*********************************************************************************************
+			  
+				$(SELECTOR[,document]).tuWas().nochWAS();
+			 
+			*********************************************************************************************/
+
+				//--------------------------------------------------------------------
+				//	DOM - Manipulation
+				//--------------------------------------------------------------------
+
+				// LESEN der DOM-Inhalte
+				var text   = $('#head').html();				// Mostwanted
+				var border = $('.tabelle').attr('border');	// 1
+				var farbe  = $('#head').css('color');		// rgb(0,0,0)
+				
+				// SCHREIBEN und VERÄNDERN des DOM
+
+				$('#info').html('<strong>Information</strong><br/>');
+				$('#info').append('<i>Hinzufügen von Inhalten</i><br/>');
+				$('#info').prepend('<i>Voranstellen von Inhalten</i><br/>');
+
+				$('.tabelle').attr('border', 5);
+				$('#liste').attr({type:0, start:1});
+
+				$('#liste li:nth-Child(1)').css('color', '#f00');
+				$('#liste li').eq(1).css({color:'#00f', marginLeft:'30px'});
+
+				//--------------------------------------------------------------------
+				//	EVENTS
+				//--------------------------------------------------------------------
+
+					// Statische Events
+
+					$('#button').on('click', function(){
+						$('#info').append('<button class="btn">dynamisch</button>');
+					});
+
+					$('.tabelle td').on('click', function(){
+
+						var anzahlDerElemente = $('.tabelle td').length;
+						var nummerDesElements = $('.tabelle td').index(this);
+
+						$('.anzahl').html(anzahlDerElemente);
+						$('.nummer').html(nummerDesElements);
+
+						$(this).css({background:'#777', color:'#fff'});
+
+					});
+
+					// Dynamische Events
+
+					$(document).on('click', '.btn', function(){
+						$('#msg').append('<strong>Button geklickt</strong>');
+					});
+
+
+				//--------------------------------------------------------------------
+				//	TRAVERSING (Iteration)
+				//--------------------------------------------------------------------
+
+				//--------------------------------------------------------------------
+				//	AJAX
+				//--------------------------------------------------------------------
+
+				//--------------------------------------------------------------------
+				//	Effekte und Animationen
+				//--------------------------------------------------------------------
+
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Die Beschreibung im Suchergebnis einer Suchmaschine ca.140 Zeichen" />
+		<meta name="keywords" content="HTML, Grundgerüst, Einstieg in HTML (max ca.10)" />
+		<title>Tolle Webseite</title>
+
+		<style>
+			#wrapper {width:400px; margin:0 auto;}
+		</style>
+
+		<script>
+
+			var geschlecht = {
+				maennlich: ['Junge', 'Mann', 'Jüngling'],
+				weiblich : ['Weib', 'Mädchen', 'Dame']
+			};
+
+			var wasser = ['See', 'Meer', 'Teich', 'Bach', 'Fluss'];
+
+			var wetter = { arten:['Sonne', 'Wind', 'Sturm'] };
+
+			var pflanzen = [ ['Gras', 'Blume'], ['Baum', 'Strauch'] ];
+
+			var ort = [{ort:'Himmel'}, {ort:'Feld'}, {ort:'Stadt'}];
+
+			var gesicht = { detail:{art1:'Kriegsbemalung', art2:'Schminke'} };
+
+			var beruf = ['Schmied', 'Dichter', 'Müller', 'Clown', 'Handwerker'];
+
+			var tier = { saeuger:['Pferd', 'Wal', 'Hund'], voegel:['Star', 'Fink'] };
+
+			var dicke = ['fett', 'dünn', 'dick'];
+
+			var haarfarbe = { dunkel:['schwarz', 'braun'], hell:'blond' };
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<script>
+
+			var text = '<div id="wrapper">';
+
+			text += '<h2>Prosa</h2>';
+
+			text += '<p>Ein <u>'+dicke[2]+'</u>er <u>'+geschlecht.maennlich[0]+'</u> spielt mit einem <u>'+wasser[2]+'</u>,<br/>';
+			text += 'Der <u>'+wetter.arten[1]+'</u> hat sich in einem <u>'+pflanzen[1][0]+'</u> gefangen.<br/>';
+			text += 'Der <u>'+ort[0].ort+'</u> sieht verbummelt aus und bleich,<br/>';
+			text += 'Als wäre ihm die <u>'+gesicht.detail.art2+'</u> ausgegangen.</p>';
+
+			text += '<p>Auf lange Krücken schief herabgebückt<br/>';
+			text += 'Und schwatzend kriechen auf dem <u>'+ort[1].ort+'</u> zwei Lahme.<br/>';
+			text += 'Ein <u>'+haarfarbe.hell+'</u>er <u>'+beruf[1]+'</u> wird vielleicht verrückt.<br/>';
+			text += 'Ein <u>'+tier.saeuger[0]+'</u>chen stolpert über eine <u>'+geschlecht.weiblich[2]+'</u>.</p>';
+
+			text += '<p>An einem Fenster klebt ein <u>'+dicke[0]+'</u>er <u>'+geschlecht.maennlich[1]+'</u>.<br/>';
+			text += 'Ein <u>'+geschlecht.maennlich[2]+'</u> will ein weiches <u>'+geschlecht.weiblich[0]+'</u> besuchen.<br/>';
+			text += 'Ein grauer <u>'+beruf[3]+'</u> zieht sich die Stiefel an.<br/>';
+			text += 'Ein Kinderwagen schreit und <u>'+tier.saeuger[2]+'</u>e fluchen.</p>';
+
+			text += '(Alfred Lichtenstein 1889-1914, deutscher Schriftsteller)';
+
+			text += '</div>';
+
+			document.write(text);
+
+		</script>
+
+
+	</body>
+
+</html>

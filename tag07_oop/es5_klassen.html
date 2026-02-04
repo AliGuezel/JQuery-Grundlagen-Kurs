@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>ES 5 - Klassen</h2>
+
+		<script>
+
+
+			// Klasse und Konstruktor bilden eine Einheit
+
+			function Kfz(susi, karl, otto){
+
+				// Eigenschaften
+				this.typ   = susi;
+				this.farbe = karl;
+				this.ps    = otto;
+
+				// Methoden
+				this.starten = function(){
+					document.write(`Der ${this.farbe}e ${this.typ} startet mit ${this.ps} PS.<br/>`);
+				}
+
+				this.fahren = function(){
+					document.write(`Der ${this.farbe}e ${this.typ} fährt mit ${this.ps} PS.<br/>`);
+				}
+
+				this.bremsen = function(){
+					document.write(`Der ${this.farbe}e ${this.typ} bremst mit ${this.ps} PS.<br/>`);
+				}
+
+			}
+
+
+			var vw = new Kfz('VW', 'rot', 95);
+			vw.starten();
+			vw.fahren();
+			vw.bremsen();
+			document.write('<hr/>');
+
+			var opel = new Kfz('Opel', 'blau', 100);
+			opel.starten();
+			opel.fahren();
+			opel.bremsen();
+			document.write('<hr/>');
+			
+			var fiat = new Kfz('Fiat', 'weiß', 105);
+			fiat.starten();
+			fiat.fahren();
+			fiat.bremsen();
+			document.write('<hr/>');
+
+
+
+
+			var audi = {
+				typ   : 'Audi',
+				farbe : 'grün',
+				ps    : 90,
+				starten : function(){
+					document.write(`Der ${this.farbe}e ${this.typ} startet mit ${this.ps} PS.<br/>`);
+				},
+				fahren  : function(){
+					document.write(`Der ${this.farbe}e ${this.typ} fährt mit ${this.ps} PS.<br/>`);
+				},
+				bremsen : function(){
+					document.write(`Der ${this.farbe}e ${this.typ} bremst mit ${this.ps} PS.<br/>`);
+				}
+			};
+
+			audi.starten();
+			audi.fahren();
+			audi.bremsen();
+
+		</script>
+
+	</body>
+
+</html>

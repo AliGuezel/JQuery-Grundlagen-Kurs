@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Window-Objekt</h2>
+
+		<div class="info"></div>
+
+		<script>
+
+			// Alle Variablen mit var die außerhalb einer Funktion definiert worden sind,
+			// sind Objekte im Window-Objekt
+
+			var zahl  = 42;										// NUMBER
+			var str   = '<h3>Heute ist Montag</h3>';			// STRING
+			var wahr  = true;									// BOOLEAN
+			var edeka = ['Brot', 'Butter', 'Käse', 'Kaffee'];	// ARRAY
+			var adr   = {vn:'Susi', nn:'Meyer', ort:'Köln'};	// OBJECT
+			var foo   = function(){ return 1234; };				// FUNCTION
+
+			// https://wiki.selfhtml.org/wiki/JavaScript
+
+			// ------------------------------- THEORIE ------------------------------
+
+			window.document.write('Heute ist Montag');
+
+			// var eingabe = window.prompt('Gebe deinen Namen ein');
+
+			window.document.getElementsByClassName('info')[0].innerHTML = 'WINDOW';
+
+			window.document.write(window.str);
+
+			window.document.write(window.adr.nn+'<br/>');
+
+			window.document.write('<hr/>');
+
+			// ------------------------------- PRAXIS ------------------------------
+
+			document.write('Heute ist Montag');
+
+			// var eingabe = prompt('Gebe deinen Namen ein');
+
+			document.getElementsByClassName('info')[0].innerHTML = 'WINDOW';
+
+			document.write(str);
+
+			document.write(adr.nn+'<br/>');
+
+			document.write('<hr/>');
+
+		</script>
+
+
+	</body>
+
+</html>

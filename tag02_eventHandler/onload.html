@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+
+			// Variante 1 mit <body onload=...
+			// hat Vorrang vor window.onload 
+			function geladen(){
+				$('.eins').html('obstruiv (obstrucive)');
+			}
+
+			// Variante 2 mit der Eigenschaft window.onload
+			// wird durch <body onload... überschrieben
+			// Das ist der Grund warum wir in der Klasse .zwei nichts sehen
+			window.onload = function(){
+				$('.zwei').html('Seite wurde mit window.onload geladen.');
+			}
+
+			$(document).ready(function(){
+				$('.drei').html('Seite wurde mit jQuery ready() geladen.');
+			});
+
+		</script>
+
+	</head>
+	
+	<body onload="geladen();">
+	
+		<h2 class="eins">Thema 1</h2>
+		<h2 class="zwei">Thema 2</h2>
+		<h2 class="drei">Thema 3</h2>
+		<h2 class="vier">Thema 4</h2>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+			$('.vier').html('nichtobstruiv (unobstrucive)');
+		</script>
+
+	</body>
+
+</html>

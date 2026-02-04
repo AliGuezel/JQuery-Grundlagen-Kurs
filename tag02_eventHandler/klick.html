@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+
+			function klick1(){
+				document.getElementsByClassName('eins')[0].innerHTML = 'KLICK 1';
+			}
+
+			$(document).ready(function(){
+
+				$('h2').eq(2).on('click', function(){
+					$('.drei').html('KLICK 3');
+				});
+
+			});
+
+		</script>
+
+	</head>
+	
+	<body>
+	
+		<h2 onclick="klick1();">Bitte klicken 1</h2>
+		<h2 onclick="klick2();">Bitte klicken 2</h2>
+
+		<h2>Bitte klicken 3</h2>
+		<h2>Bitte klicken 4</h2>
+		<h2>Bitte klicken 5</h2>
+
+		<h2 class="eins">Thema 1</h2>
+		<h2 class="zwei">Thema 2</h2>
+		<h2 class="drei">Thema 3</h2>
+		<h2 class="vier">Thema 4</h2>
+		<h2 class="fuenf">Thema 5</h2>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+
+			function klick2(){
+				document.getElementsByClassName('zwei')[0].innerHTML = 'KLICK 2';
+			}
+
+			$('h2').eq(3).on('click', function(){
+				$('.vier').html('KLICK 4');
+			});
+
+			$('h2').eq(4).on('click', function(){
+				$('.fuenf').html('KLICK 5');
+			});
+
+		</script>
+
+	</body>
+
+</html>

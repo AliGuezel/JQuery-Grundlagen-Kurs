@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>ES 6 - Klassen</h2>
+
+		<script>
+
+			class Kfz {
+
+				constructor(susi, karl, otto){
+					// Eigenschaften
+					this.typ   = susi;
+					this.farbe = karl;
+					this.ps    = otto;
+				}
+
+				// Methoden
+				starten(){
+					document.write(`Der ${this.farbe}e ${this.typ} startet mit ${this.ps} PS.<br/>`);
+				}
+
+				fahren(){
+					document.write(`Der ${this.farbe}e ${this.typ} fährt mit ${this.ps} PS.<br/>`);
+				}
+
+				bremsen(){
+					document.write(`Der ${this.farbe}e ${this.typ} bremst mit ${this.ps} PS.<br/>`);
+				}
+
+			}
+
+
+			var bmw = new Kfz('BMW', 'rot', 150);
+			bmw.starten();
+			bmw.fahren();
+			bmw.bremsen();
+
+			document.write('<hr/>');
+
+			var opel = new Kfz('Opel', 'blau', 90);
+			opel.starten();
+			opel.fahren();
+			opel.bremsen();
+
+		</script>
+
+	</body>
+
+</html>

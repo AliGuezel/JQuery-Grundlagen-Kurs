@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Iterationen</h2>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			var html = '<table border="1">';
+			html += '<tr>';
+			html += '<td>11</td>';
+			html += '<td>12</td>';
+			html += '<td>13</td>';
+			html += '<td>14</td>';
+			html += '</tr>';
+			html += '<tr>';
+			html += '<td>21</td>';
+			html += '<td>22</td>';
+			html += '<td>23</td>';
+			html += '<td>24</td>';
+			html += '</tr>';
+			html += '<tr>';
+			html += '<td>31</td>';
+			html += '<td>32</td>';
+			html += '<td>33</td>';
+			html += '<td>34</td>';
+			html += '</tr>';
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			for(var r=0; r<5; r++){
+				html += '<tr>';
+				for(var s=0; s<8; s++){
+					html += '<td>4711</td>';
+				}
+				html += '</tr>';
+			}
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+			
+			var data = [
+				[11,12,13,14], 
+				[21,22,23,24], 
+				[31,32,33,34], 
+				[41,42,43,44] 
+			];
+
+			var html = '<table border="1">';
+			for(var r=0; r<data.length; r++){
+				html += '<tr>';
+				for(var s=0; s<data[r].length; s++){
+					html += '<td>'+data[r][s]+'</td>';
+				}
+				html += '</tr>';
+			}
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			$.each(data, function(keyRow, valueRow){
+				html += '<tr>';
+				$.each(valueRow, function(keyCol, valueCol){
+					html += '<td>'+valueCol+'</td>';
+				});
+				html += '</tr>';
+			});
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+
+			var html = '<table border="1">';
+			$.each(data, function(){
+				html += '<tr>';
+				$.each(this, function(){
+					html += '<td>'+this+'</td>';
+				});
+				html += '</tr>';
+			});
+			html += '</table><br/><br/>';
+			$('#ausgabe').append(html);
+
+		</script>
+
+	</body>
+
+</html>

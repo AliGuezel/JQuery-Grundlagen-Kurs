@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>this</h2>
+
+		<ul id="traditionell">
+			<li onclick="klick(this);">111</li>
+			<li onclick="klick(this);">222</li>
+			<li onclick="klick(this);">333</li>
+		</ul>
+
+		<ul id="jQuery">
+			<li>AAA</li>
+			<li>BBB</li>
+			<li>CCC</li>
+		</ul>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+
+			function klick(susi){
+				susi.innerHTML = 'GEKLICKT';
+				susi.style.color = '#f00';
+			}
+
+			$('#jQuery li').on('click', function(){
+				// this repräsentiert an dieser Stelle das selektierte Element
+				console.dir(this);
+				this.innerHTML = 'GEKLICKT';
+				$(this).append('geklickt');
+				$(this).css({color:'#f00'});
+			});
+
+		</script>
+
+	</body>
+
+</html>

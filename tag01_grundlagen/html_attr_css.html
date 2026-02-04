@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#msg {color:#f00;}
+			.item {color:#00f;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Methoden .html() .attr() .css()</h2>
+
+		<ol class="liste" start="20" type="A">
+			<li class="item">1111</li>
+			<li class="item">2222</li>
+			<li class="item">3333</li>
+			<li class="item">4444</li>
+		</ol>
+
+		<div id="msg"><h2>Ausgabe</h2></div>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			$('#msg').html('Der gesamte Inhalt wird überschrieben.<br/>');
+			$('#msg').append('Weitere Ausgaben werden hinzugefügt.<br/>');
+			$('#msg').prepend('Inhalte werden vorne weg hinzugefügt.<br/>');
+
+			$('.liste').attr('start', 10);
+			$('.liste').attr('type', 'I');
+
+			$('.liste').attr({start:1, type:'1'});
+
+			$('.liste .item').css('color', '#f00');
+			$('.liste .item').css('fontSize', '1.25em');
+
+			var einstellung = {
+				color      : '#00f',
+				marginLeft : '30px',
+				background : 'orange',
+				width      : '100px',
+				border     : '1px solid #0f0'
+			};
+
+			$('.liste .item').eq(1).css(einstellung);  // Zweites li-Element
+
+			$('.liste .item:nth-Child(3)').html('geänderter Inhalt 1');  // Drittes li-Element
+			$('.liste .item').eq(3).html('geänderter Inhalt 2');  // Viertes li-Element
+
+		</script>
+
+	</body>
+
+</html>

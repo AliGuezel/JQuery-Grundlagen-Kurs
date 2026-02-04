@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			.akkordeon {width:300px;}
+			
+			.akkordeon div {
+				height:50px;
+				border:1px solid #aaa;
+				margin:2px;
+				cursor:pointer;
+				background: #eee;
+			}
+
+			.akkordeon .eins {height:100px;}
+
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Akkordeon</h2>
+
+		<div class="akkordeon">
+
+			<div class="eins">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,</div>
+			<div class="zwei">ZWEI</div>
+			<div class="drei">DREI</div>
+			<div class="vier">VIER</div>
+			<div class="fuenf">FÜNF</div>
+
+		</div>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+			$('.vier').on('click', function(){
+				$('.eins').css({height:'50px'}).html('EINS');
+				$('.vier').css({height:'100px'}).html('Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen...');
+			});
+		</script>
+
+
+	</body>
+
+</html>

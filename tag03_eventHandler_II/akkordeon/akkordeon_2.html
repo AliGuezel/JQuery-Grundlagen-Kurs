@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			.akkordeon {width:300px;}
+			
+			.akkordeon div {
+				height:50px;
+				border:1px solid #aaa;
+				margin:2px;
+				cursor:pointer;
+				background: #eee;
+			}
+
+			.akkordeon .eins {height:100px;}
+
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Akkordeon</h2>
+
+		<div class="akkordeon">
+
+			<div class="eins">EINS</div>
+			<div class="zwei">ZWEI</div>
+			<div class="drei">DREI</div>
+			<div class="vier">VIER</div>
+			<div class="fuenf">FÜNF</div>
+
+		</div>
+
+		<script src="jquery-3.6.1.min.js"></script>
+
+		<script>
+			$('.eins').on('click', function(){
+
+				$('.eins').css({height:'100px'});
+				$('.zwei').css({height:'50px'});
+				$('.drei').css({height:'50px'});
+				$('.vier').css({height:'50px'});
+				$('.fuenf').css({height:'50px'});
+				
+			});
+
+			$('.zwei').on('click', function(){
+
+				$('.eins').css({height:'50px'});
+				$('.zwei').css({height:'100px'});
+				$('.drei').css({height:'50px'});
+				$('.vier').css({height:'50px'});
+				$('.fuenf').css({height:'50px'});
+
+			});
+
+			$('.drei').on('click', function(){
+
+				$('.eins').css({height:'50px'});
+				$('.zwei').css({height:'50px'});
+				$('.drei').css({height:'100px'});
+				$('.vier').css({height:'50px'});
+				$('.fuenf').css({height:'50px'});
+
+			});
+
+			$('.vier').on('click', function(){
+
+				$('.eins').css({height:'50px'});
+				$('.zwei').css({height:'50px'});
+				$('.drei').css({height:'50px'});
+				$('.vier').css({height:'100px'});
+				$('.fuenf').css({height:'50px'});
+
+			});
+
+			$('.fuenf').on('click', function(){
+
+				$('.eins').css({height:'50px'});
+				$('.zwei').css({height:'50px'});
+				$('.drei').css({height:'50px'});
+				$('.vier').css({height:'50px'});
+				$('.fuenf').css({height:'100px'});
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

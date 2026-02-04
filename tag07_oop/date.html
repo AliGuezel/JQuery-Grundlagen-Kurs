@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#zeit {text-align: center; font-size:24px;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Date</h2>
+
+		<p id="zeit"></p>
+
+		<script>
+
+			// Literale Zuordnung
+			var mwst  = 19;										 // NUMBER
+			var film  = '<h3>Die "Schöne" und Biest</h3>';		 // STRING
+			var wahr  = true;									 // BOOLEAN
+			var autos = ['BMW', 'Opel', 'Seat', 'Benz'];		 // ARRAY
+			var car   = {hersteller:'Opel', typ:'Corsa', ps:60}; // OBJECT
+			var bonn  = function(){return 'Hier ist Bonn.';};    // FUNCTION
+
+			// Instanziierung -> aus einer Klasse wird ein Objekt erstellt
+			var mwst  = new Number(19);										 // NUMBER
+			var film  = new String('<h3>Die "Schöne" und Biest</h3>');		 // STRING
+			var wahr  = new Boolean(true);									 // BOOLEAN
+			var autos = new Array('BMW', 'Opel', 'Seat', 'Benz');			 // ARRAY
+			var car   = new Object({hersteller:'Opel', typ:'Corsa', ps:60}); // OBJECT
+			var bonn  = new Function("x", "return 'Hier ist Bonn. ' + x;");	 // FUNCTION
+
+
+			var wochentag = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+			var monat = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+
+
+			function uhrzeit(){
+				var jetzt = new Date();
+
+				var w = jetzt.getDay();
+				var d = jetzt.getDate();  if(d<10){d='0'+d;}
+				var m = jetzt.getMonth();
+				var y = jetzt.getFullYear();
+				var h = jetzt.getHours();   if(h<10){h='0'+h;}
+				var i = jetzt.getMinutes(); if(i<10){i='0'+i;}
+				var s = jetzt.getSeconds(); if(s<10){s='0'+s;}
+
+				var ausgabe = `Heute ist ${wochentag[w]}, der ${d} ${monat[m]} ${y}. Es ist ${h}:${i}:${s} Uhr`;
+				document.getElementById('zeit').innerHTML = ausgabe;
+			}
+
+			uhrzeit();
+			setInterval(uhrzeit, 1000);
+
+		</script>
+
+	</body>
+
+</html>

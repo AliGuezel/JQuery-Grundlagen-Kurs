@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Datentypen</h2>
+
+		<script>
+
+            /*
+
+                6 Regeln für Konstanten-, Variablen und Funktionsnamen
+  				 - Bei der Erstellung (Definition) einer neuen Variablen immer die var- oder let-Definition verwenden
+ 				 - Groß- und Kleinschreibung beachten (case-sensitive)
+  				 - immer EIN beliebiges WORT!! (bzw. mindestens ein Buchstabe)
+ 				 - Keine Sonderzeichen (#*) - Keine Umlaute (öüäß) außer dem Unterstrich oder dem $-Zeichen
+ 				 - Zahlen dürfen verwendet werden. ABER: Als erstes Zeichen KEINE Zahl.
+				 - Keinen vordefinierten Syntax (reservierte Wörter) verwenden. z.B. var for = 5000;
+ 
+                Allgemeine Empfehlungen zu Variablennamen
+                    - Bezug zum Inhalt
+                    - Konstantennamen immer groß schreiben. const ANTWORT = 42;
+                    - alte Empfehlung :  var ein_ganz_toller_variablenname = 4711;
+                    - neue Empfehlung :  var einGanzTollerVariablenname = 4711; (camel-case Schreibweise)
+
+                var vs let
+                var - Der Variablenname kann überschrieben werden
+                let - Der Variablenname kann NICHT überschrieben werden
+
+               Für die Ausgabe der Inhalte einer Variablen auf einer Webseite
+               sind nur die Datentypen STRING und NUMBER geeignet.
+
+            */
+
+			const MWST = 19;
+			const JAHR = 2022;
+
+			let plz = 50000;
+			// let plz = 40000;  // FEHLER - Die Variable darf nur einmal definiert werden.
+
+			var hausNummer = 12;
+			var hausNummer = 24;  // KEIN FEHLER - Die Variable darf überschrieben werden.
+			
+			/*********************************************************************************************
+				Primitive (einfache) Datentypen
+			*********************************************************************************************/
+
+			// NUMBER (Zahl)
+			// Gilt für alle Zahlen : positive, negative, Ganzzahlen und Fließkommazahlen (mathematischer Punkt)
+			var preis = 12.56;
+
+			// STRING (Zeichenkette)
+			var filmA = 'Die "Schöne" und das Biest';
+			var filmB = "Terminator";
+			var filmC = `Der Nachname`;
+
+			// BOOLEAN (Wahrheitswert)
+			var wahr = true; // true oder false
+			
+			document.write(preis + '<br/>'); // 12.56
+			document.write(filmA + '<br/>'); // Die "Schöne" und das Biest
+
+			/*********************************************************************************************
+				Komplexe (zusammengesetzte) Datentypen
+			*********************************************************************************************/
+			
+			// ARRAY (Datenfeld)
+			var edeka = ['Brot', 'Butter', 'Käse', 'Kaffee'];
+			var penny = new Array('Gemüse', 'Obst', 'Salat');
+
+			document.write( edeka[3] + '<br/>' ); // Kaffee
+			document.write( penny[2] + '<br/>' ); // Salat
+
+			// OBJECT (Objekt)
+			var freundin = {vn:'Susi', nn:'Müller', plz:50000, ort:'Köln'};
+			var freund   = new Object({vn:'Otto', nn:'Meyer'});
+
+			var jq = {color:'#F00', fontSize:'2em', background:'#FF0'};
+
+			document.write( freundin.vn + '<br/>');     // Susi
+			document.write( freundin['vn'] + '<br/>');  // Susi  Zugriff über Assoziation
+			document.write( freundin.ort + '<br/>');    // Köln
+			document.write( freund.vn + '<br/>');       // Otto
+			document.write( jq.fontSize + '<br/>' );    // 2em
+
+			// FUNCTION (Funktion)
+			var berlin = function(){
+				return 'Hallo Berlin<br/>';
+			}
+
+			var text = berlin();   // Aufruf der Funktion berlin()
+			document.write(text);  // Hallo Berlin
+
+			document.write( berlin() );  // Hallo Berlin
+			document.write( berlin  );   // function(){return 'Hallo Berlin';}
+
+			/*********************************************************************************************
+				Sonderformen der Datentypen
+			*********************************************************************************************/
+
+			var ohneZuordnung; // undefined
+			var nichts = null;
+			var nix = undefined;
+
+		</script>
+
+	</body>
+
+</html>

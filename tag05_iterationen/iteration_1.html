@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Iterationen</h2>
+
+		<div id="ausgabe"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+			
+			var edeka = ['Brot', 'Butter', 'Käse', 'Kaffee'];
+			var adr   = {vn:'Susi', nn:'Müller', plz:50000, ort:'Köln'};
+
+			var html = '<h3>Nr. 1</h3>';
+			html += '<ul>';
+			html += '<li>'+edeka[0]+'</li>';
+			html += '<li>'+edeka[1]+'</li>';
+			html += '<li>'+edeka[2]+'</li>';
+			html += '<li>'+edeka[3]+'</li>';
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   for(Startwert; Endbedingung; Inkrement/Dekrement){}
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 2* for()</h3>';
+			html += '<ul>';
+			for(var n=0; n<edeka.length; n++){
+				html += '<li>'+edeka[n]+'</li>';
+			}
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   while(Endbedingung){}     // Kopfgesteuert
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 3* while()</h3>';
+			html += '<ul>';
+			var x = 0;
+			while(x<edeka.length){
+				html += '<li>'+edeka[x]+'</li>';
+				x++;
+			}
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   do{}while(Endbedingung)	// Fußgesteuert
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 4 do{}while()</h3>';
+			html += '<ul>';
+			var y = 0;
+			do {
+				html += '<li>'+edeka[y]+'</li>';
+				y++;
+			} while(y<edeka.length);
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//
+			//	Datengebundene Schleifen
+			//
+			//--------------------------------------------------------------------------
+
+			//--------------------------------------------------------------------------
+			//   for(alias in ARRAY|OBJECT)
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 5* for( alias in ARRAY )</h3>';
+			html += '<ul>';
+			for(var key in edeka){
+				html += '<li>'+key+' - '+edeka[key]+'</li>';				
+			}
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			var html = '<h3>Nr. 6* for( alias in OBJECT )</h3>';
+			html += '<ul>';
+			for(var key in adr){
+				html += '<li>'+key+' - '+adr[key]+'</li>'
+			}
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   for(alias of ARRAY)  -  Nur für Arrays
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 7 for( alias of ARRAY )</h3>';
+			html += '<ul>';
+			for(var value of edeka){
+				html += '<li>'+value+'</li>';
+			}
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   array.forEach-Methode  -  Nur für Arrays
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 8 forEach()</h3>';
+			html += '<ul>';
+			edeka.forEach(function(value, key){
+				html += '<li>'+key+' - '+value+'</li>';
+			});
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   array.map-Methode  -  Nur für Arrays
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr. 9 map()</h3>';
+			html += '<ul>';
+			edeka.map(function(value, key){
+				html += '<li>'+key+' - '+value+'</li>';
+			});
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			//--------------------------------------------------------------------------
+			//   jQuery $.each() ARRAY|OBJECT  value -> this
+			//--------------------------------------------------------------------------
+
+			var html = '<h3>Nr.10 jQuery $.each</h3>';
+
+			html += '<ul>';
+			$.each(edeka, function(key, value){
+				html += '<li>'+key+' - '+value+'</li>';
+			});
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			var html = '<ul>';
+			$.each(adr, function(key, value){
+				html += '<li>'+key+' - '+value+'</li>';
+			});
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+			var html = '<ul>';
+			$.each(edeka, function(){
+				html += '<li>'+this+'</li>';
+			});
+			html += '</ul>';
+			$('#ausgabe').append(html);
+
+		</script>
+
+	</body>
+
+</html>
