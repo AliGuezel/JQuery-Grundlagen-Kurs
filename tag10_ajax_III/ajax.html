@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Firma</h2>
+
+		<h3>JSON</h3>
+		<div id="json"></div>
+		<hr/>
+
+		<h3>XML</h3>
+		<div id="xml"></div>
+		<hr/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			// -------------------------------------------
+			// 	JSON
+			// -------------------------------------------
+
+			$.ajax({
+				url : 'json.php',
+				success : function(json){
+					var html = '<table border="1">';
+					for(var n=0; n<json.length; n++){
+						html += '<tr>';
+						html += '<td>'+json[n].anrede+'</td>';
+						html += '<td>'+json[n].vorname+'</td>';
+						html += '<td>'+json[n].nachname+'</td>';
+						html += '<td>'+json[n].plz+'</td>';
+						html += '<td>'+json[n].ort+'</td>';
+						html += '</tr>';
+					}
+					html += '</table>';
+
+					$('#json').append(html);
+
+				}
+			});
+
+
+			// -------------------------------------------
+			// 	XML
+			// -------------------------------------------
+
+			$.ajax({
+				url : 'xml.php',
+				success : function(doc){
+					
+					var anzahl = $('kunde', doc).length;
+					
+					var html = '<table border="1">';
+					for(var n=0; n<anzahl; n++){
+						html += '<tr>';
+						html += '<td>'+$('kunde', doc).eq(n).find('anrede').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('vorname').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('nachname').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('plz').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('ort').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('telefon').text()+'</td>';
+						html += '<td>'+$('kunde', doc).eq(n).find('email').text()+'</td>';
+						html += '</tr>';
+					}
+					html += '</table>';
+
+					$('#xml').append(html);
+
+				}
+			});
+
+
+
+		</script>
+
+	</body>
+
+</html>

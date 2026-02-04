@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<verzeichnis>
+
+    <!-- Ausmaskieren von xml-Inhalten mit CDATA -->
+    <titel><![CDATA[Wikipedia <u>Städteverzeichnis</u>]]></titel>
+
+    <info ch="Schweiz" de="Deutschland" nl="Niederlande" />
+
+    <eintrag land="ch">
+        <stichwort land="Schweiz">Genf</stichwort>
+        <eintragstext>Genf ist der Sitz von ...</eintragstext>
+    </eintrag>
+
+    <eintrag land="de">
+        <stichwort land="Deutschland">Köln</stichwort>
+        <eintragstext>Köln ist eine Stadt, die ...</eintragstext>
+    </eintrag>
+
+    <eintrag land="nl">
+        <stichwort land="Niederlande">Amsterdam</stichwort>
+        <eintragstext>Amsterdam ist eine Stadt, die ...</eintragstext>
+    </eintrag>
+
+</verzeichnis>

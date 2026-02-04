@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Übung</h2>
+
+		<h2>AUTO</h2>
+		<div id="auto"></div>
+		<hr/>
+
+		<h2>CD</h2>
+		<div id="cd"></div>
+		<hr/>
+
+		<h2>HOROSKOP</h2>
+		<div id="horoskop"></div>
+		<hr/>
+
+		<h2>NEWS</h2>
+		<div id="news"></div>
+		<hr/>
+
+		<h2>BUNDESLIGA</h2>
+		<div id="liga"></div>
+		<hr/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			// ------------------------
+			// 		AUTO
+			// ------------------------
+			
+			// ------------------------
+			// 		CD
+			// ------------------------
+
+			// ------------------------
+			// 		HOROSKOP
+			// ------------------------
+
+			// ------------------------
+			// 		NEWS
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/newsticker.xml',
+				success : function(doc){
+					var ausgabe = $('item', doc).eq(10).find('title').eq(0).text() + '<br/>';
+					ausgabe += $('item', doc).eq(10).find('description').eq(0).text();
+					$('#news').html(ausgabe);
+				}
+			});
+
+			// ------------------------
+			// 		BUNDESLIGA
+			// ------------------------
+
+
+		</script>
+
+	</body>
+
+</html>

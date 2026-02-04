@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Tolle Webseite</title>
+        <style>
+            * {font-family: sans-serif;}
+            #wrapper {width:450px; height:220px; margin:auto; padding:10px; border: 1px dotted #777;}
+            h2 {text-align:center;}
+        </style>
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+                <div id="head">
+                    <h2>(S)ingle (P)age (A)pplication</h2>
+                    <a href="#home">| HOME |</a>
+                    <a href="#politik"> POLITIK |</a>
+                    <a href="#aktuell"> AKTUELL |</a>
+                    <a href="#sport"> SPORT |</a>
+                    <a href="#tv/ARD"> TV ARD |</a>
+                    <a href="#tv/ZDF"> TV ZDF |</a><br/><br/>
+                </div>
+
+                <div id="content"></div>
+
+                <div id="footer">
+                    <br/>&#0169;Die SPA-News&#0153;
+                </div>
+
+        </div>
+
+        <script>
+
+            function home(){
+                document.getElementById('content').innerHTML = '<h2>Herzlich Willkommen</h2>';
+            }
+
+            function politik(){
+                document.getElementById('content').innerHTML = '<h2>POLITIK</h2>';
+            }
+
+            function aktuell(){
+                document.getElementById('content').innerHTML = '<h2>AKTUELL</h2>';
+            }
+
+            function sport(){
+                document.getElementById('content').innerHTML = '<h2>SPORT</h2>';
+            }
+
+            function tv(sender){
+                document.getElementById('content').innerHTML = '<h2>TV-PROGRAMM '+sender+'</h2>';
+            }
+
+            home();
+
+            // -------------------------------------------------------------
+            //  R O U T E R
+            // -------------------------------------------------------------
+
+            window.onhashchange = function(){
+                
+                var param = window.location.hash.substr(1).split('/');
+                var theme     = param[0];
+                var uebergabe = param[1];
+
+                switch(theme){
+                    case 'home'    : home(); break;
+                    case 'politik' : politik(); break;
+                    case 'aktuell' : aktuell(); break;
+                    case 'sport'   : sport(); break;
+                    case 'tv'      : tv(uebergabe); break;
+                }
+
+            }
+
+        </script>
+
+    </body>
+
+</html>

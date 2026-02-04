@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="description"/>
+		<meta name="keywords" content="keywords"/>
+		<meta name="author" content="author"/>
+		<title>Beautiful Day</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" media="screen"/>
+		<style>
+			.content img {float:left; margin-right:15px;}
+			.clearer {clear:both;}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="top">
+
+			<div class="header">
+
+				<div class="left">
+					Unesco
+				</div>
+
+				<div class="right">
+
+					<h2>Tristique porta</h2>
+
+					<p>Fusce porta pede nec eros. Maecenas ipsum sem, interdum non, aliquam vitae, interdum nec, metus. Maecenas ornare lobortis risus.</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="container">
+
+			<div class="navigation">
+				<a href="#home">Home</a>
+				<a href="#state/Germany">Germany</a>
+				<a href="#state/Italy">Italy</a>
+				<a href="#state/Spain">Spain</a>
+				<a href="#state/France">France</a>
+				<a href="#state/Finland">Finland</a>
+				<div class="clearer"><span></span></div>
+			</div>
+
+			<div class="main">
+
+				<div class="content"></div>
+
+				<div class="sidenav"></div>
+
+				<div class="clearer"><span></span></div>
+
+			</div>
+
+			<div class="footer">
+
+				<div class="left">&copy; 2017 <a href="#">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.</div>
+				<div class="right"><a href="http://templates.arcsin.se/">Website template</a> by <a href="https://arcsin.se/">Arcsin</a></div>
+
+				<div class="clearer"><span></span></div>
+
+			</div>
+
+		</div>
+
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<script>
+
+			function home(){
+				$.ajax({
+					url : 'data/home.tpl',
+					success : function(dataStr){
+						$('.content').html(dataStr);
+					}
+				});
+			}
+
+			function navi(){
+				$.ajax({
+					url : 'data/laender.php',
+					success : function(json){
+						var html = '<h2>States</h2>';
+						html += '<ul>';
+						$.each(json, function(){
+							html += '<li><a href="#state/'+this.states+'">'+this.states+' ('+this.places+')</a></li>';
+						});
+						html += '</ul>';
+						$('.sidenav').html(html);
+					}
+				});
+
+			}
+
+			function state(land){
+				$.ajax({
+					url : 'data/unesco.php?id='+land,
+					success : function(json){
+
+						var html = '';
+						$.each(json, function(){
+							html += '<h1>'+this.site+'</h1>';
+							html += '<div class="descr">'+this.location+'</div>';
+							html += '<img src="'+this.image+'" />';
+							html += this.short_info;
+							html += '<div class="clearer"></div>';
+							html += '<hr/>';
+						});
+
+						$('.content').html(html);
+
+					}
+				});
+			}
+
+			// ------------------------------------------------
+			//	R O U T E R
+			// ------------------------------------------------
+
+			window.onhashchange = function(){
+				var param = window.location.hash.substr(1).split('/');
+				var thema = param[0];
+				var land  = param[1];
+
+				switch(thema){
+					case 'home'  : home(); break;
+					case 'state' : state(land); break;
+				}
+
+			}
+
+			home();
+			navi();
+
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		<style>
+			#liga img {width:20px;}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h2>Übung</h2>
+
+		<h2>AUTO</h2>
+		<div id="auto"></div>
+		<hr/>
+
+		<h2>CD</h2>
+		<div id="cd"></div>
+		<hr/>
+
+		<h2>HOROSKOP</h2>
+		<div id="horoskop"></div>
+		<hr/>
+
+		<h2>NEWS</h2>
+		<div id="news"></div>
+		<hr/>
+
+		<h2>BUNDESLIGA</h2>
+		<div id="liga"></div>
+		<hr/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+
+			// Immer wenn .eq(0) gemeint ist, kann .eq(0) entfallen
+
+			// ------------------------
+			// 		AUTO
+			// ------------------------
+			
+			$.ajax({
+				url : 'uebung/auto.json',
+				success : function(json){
+					var ausgabe = json[3].marke + ' - ';
+					ausgabe += json[3].modell[2] + ' - ';
+					ausgabe += json[3].info[2];
+					$('#auto').html(ausgabe + '<br/><br/>');
+
+					var html = '<table border="1">';
+					for(var r=0; r<json.length; r++){
+						html += '<tr>';
+						html += '<td>'+json[r].marke+'</td>';
+						html += '<td>';
+						html += '<ul>';
+							for(var n=0; n<json[r].modell.length ; n++){
+								html += '<li>'+json[r].modell[n]+'</li>';
+							}
+						html += '</ul>';
+						html += '</td>';
+						html += '<td>';
+						html += '<ul>';
+							for(var n=0; n<json[r].info.length; n++){
+								html += '<li>'+json[r].info[n]+'</li>';
+							}
+						html += '</ul>';
+						html += '</td>';
+						html += '</tr>';
+					}
+					html += '</table><br/><br/>';
+					
+					$('#auto').append(html);
+				}
+			});
+
+			// ------------------------
+			// 		CD
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/cd.xml',
+				success : function(doc){
+					var ausgabe = $('cd', doc).eq(3).find('title').eq(0).text() + ' - ';
+					ausgabe += $('cd', doc).eq(3).find('artist').eq(0).text();
+					$('#cd').html(ausgabe + '<br/><br/>');
+
+					var anzahl = $('cd', doc).length;
+
+					var html = '<table border="1">';
+					for(var r=0; r<anzahl; r++){
+						html += '<tr>';
+							html += '<td>'+$('cd', doc).eq(r).find('artist').eq(0).text()+'</td>';
+							html += '<td>'+$('cd', doc).eq(r).find('title').eq(0).text()+'</td>';
+							html += '<td>'+$('cd', doc).eq(r).find('country').eq(0).text()+'</td>';
+							html += '<td>'+$('cd', doc).eq(r).find('price').eq(0).text()+'</td>';
+						html += '</tr>';
+					}
+					html += '</table><br/><br/>';
+
+					$('#cd').append(html);
+
+					// ----------------------------------------------------------------------------
+					
+					var html = '<table border="1">';
+					$.each( $('cd', doc), function(key, value){
+						html += '<tr>';
+							html += '<td>'+$(value).find('artist').eq(0).text()+'</td>';
+							html += '<td>'+$(value).find('title').eq(0).text()+'</td>';
+							html += '<td>'+$(value).find('country').eq(0).text()+'</td>';
+							html += '<td>'+$(value).find('price').eq(0).text()+'</td>';
+						html += '</tr>';
+					});
+					
+					html += '</table><br/><br/>';
+
+					$('#cd').append(html);
+
+					// ----------------------------------------------------------------------------
+				
+					var html = '<table border="1">';
+					
+					$('cd', doc).each(function(key, value){
+						html += '<tr>';
+						html += '<td>'+$(value).find('artist').eq(0).text()+'</td>';
+						html += '<td>'+$(value).find('title').eq(0).text()+'</td>';
+						html += '<td>'+$(value).find('country').eq(0).text()+'</td>';
+						html += '<td>'+$(value).find('price').eq(0).text()+'</td>';
+						html += '</tr>';
+					});
+
+					html += '</table>';
+
+					$('#cd').append(html);
+
+
+				}
+			});
+
+			// ------------------------
+			// 		HOROSKOP
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/horoskop.xml',
+				success : function(doc){
+					var ausgabe = $('item', doc).eq(1).find('title').eq(0).text() + '<br/>';
+					ausgabe += $('item', doc).eq(1).find('description').eq(0).text();
+					$('#horoskop').html(ausgabe + '<br/><br/>');
+
+					var html = '<table border="1">';
+					$('item', doc).each(function(){
+						html += '<tr>';
+						html += '<td>'+$(this).find('title').eq(0).text()+'</td>';
+						html += '<td>'+$(this).find('description').eq(0).text()+'</td>';
+						html += '</tr>';
+					});
+					html += '</table><br/><br/>';
+
+					$('#horoskop').append(html);
+
+				}
+			});
+
+			// ------------------------
+			// 		NEWS
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/newsticker.xml',
+				success : function(doc){
+					var ausgabe = $('item', doc).eq(10).find('title').eq(0).text() + '<br/>';
+					ausgabe += $('item', doc).eq(10).find('description').eq(0).text();
+					$('#news').html(ausgabe + '<br/><br/>');
+
+					var html = '<table border="1">';
+					$('item', doc).each(function(){
+						html += '<tr>';
+						html += '<td>'+$(this).find('title').eq(0).text()+'</td>';
+						html += '<td>'+$(this).find('description').eq(0).text()+'</td>';
+						html += '</tr>';
+					});
+					html += '</table><br/><br/>';
+
+					$('#news').append(html);
+
+				}
+			});
+
+			// ------------------------
+			// 		BUNDESLIGA
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/bundesliga.xml',
+				success : function(doc){
+					console.dir(doc);
+					var ausgabe = $('Match', doc).eq(4).find('Location').eq(0).find('LocationCity').eq(0).text() + ' - ';
+					ausgabe += $('Match', doc).eq(4).find('Location').eq(0).find('LocationStadium').eq(0).text();
+					$('#liga').html(ausgabe + '<br/><br/>');
+
+					var html = '<table border="1">';
+					$('Match', doc).each(function(){
+						html += '<tr>';
+						html += '<td>'+$(this).find('Team1').find('TeamName').text()+'</td>';
+						html += '<td><img src="'+$(this).find('Team1').find('TeamIconUrl').text()+'" /></td>';
+						html += '<td>'+$(this).find('MatchResults').find('MatchResult').eq(1).find('PointsTeam1').text()+'</td>';
+						html += '<td>:</td>';
+						html += '<td>'+$(this).find('MatchResults').find('MatchResult').eq(1).find('PointsTeam2').text()+'</td>';
+						html += '<td><img src="'+$(this).find('Team2').find('TeamIconUrl').text()+'" /></td>';
+						html += '<td>'+$(this).find('Team2').find('TeamName').text()+'</td>';
+						html += '</tr>';
+					});
+					html += '</table>';
+
+					$('#liga').append(html);
+
+				}
+			});
+
+		</script>
+
+	</body>
+
+</html>

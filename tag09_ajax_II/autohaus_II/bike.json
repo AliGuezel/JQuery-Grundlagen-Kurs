@@ -1,0 +1,17 @@
+[
+    {
+        "marke"  : "BMW",
+        "modell" : ["Item 1", "Item 2", "Item 3", "Item 4"],
+        "info"   : ["Toller Item 1", "Toller Item 2", "Toller Item 3", "Toller Item 4"]
+    },
+    {
+        "marke"  : "SUZUKI",
+        "modell" : ["Item 1", "Item 2"],
+        "info"   : ["Toller Item 1", "Toller Item 2"]
+    },
+    {
+        "marke"  : "HARLEY DAVIDSON",
+        "modell" : ["Item 1", "Item 2", "Item 3" ],
+        "info"   : ["Toller Item 1", "Toller Item 2", "Toller Item 3"]
+    }
+]

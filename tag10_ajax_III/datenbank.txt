@@ -1,0 +1,40 @@
+SQL - Datenbanken
+
+DBMS -> Datenbanken -> Tabellen -> Datensätze
+
+Frau Gabi Müller 51145 Köln 0221-123456789  gabi@web.de
+Frau Ulla Schmitz 20095 Hamburg 040-4444444 ulla@web.de
+Herr Otto Meyer 80801 München 089-123459999 otto@web.de
+Herr Heinz Muster 06108 Halle/S 0345-12345 heinz@web.de
+Herr Fritz Huber 12524 Berlin 030-5678909  fritz@web.de
+Firma Karl Schulz 40210 Düsseldorf 0211-1234567 karl@web.de
+
+HINZUFÜGEN  --  (C)reate
+LESEN       --  (R)ead
+ÄNDERN      --  (U)pdate
+LÖSCHEN     --  (D)elete 
+
+----------------------------------------------------------------
+
+Datenbankname : firma - utf8mb4_unicode_ci
+
+Tabellenname  : kunden
+
+id  anrede  vorname nachname plz     ort         telefon         email
+int varchar varchar varchar  varchar varchar     varchar         varchar
+    10      20      40       10      40          30              40
+
+1   Frau    Gabi    Müller   51145   Köln        0221-123456789  gabi@web.de
+2   Frau    Ulla    Schmitz  20095   Hamburg     040-4444444     ulla@web.de
+3   Herr    Otto    Meyer    80801   München     089-123459999   otto@web.de
+4   Herr    Heinz   Muster   06108   Halle/S     0345-12345      heinz@web.de
+5   Herr    Fritz   Huber    12524   Berlin      030-5678909     fritz@web.de
+6   Firma   Karl    Schulz   40210   Düsseldorf  0211-1234567    karl@web.de
+
+pk  (Primärschlüssel)
+a_i (Auto_Increment)
+
+
+
+
+

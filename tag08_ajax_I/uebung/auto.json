@@ -1,0 +1,27 @@
+[
+    {
+        "marke"  : "Opel",
+        "modell" : ["Adam", "Ascona", "Corsa", "Kadett"],
+        "info"   : ["Toller Adam", "Toller Ascona", "Toller Corsa", "Toller Kadett"]
+    },
+    {
+        "marke"  : "VW",
+        "modell" : ["Polo", "Golf"],
+        "info"   : ["Toller Polo", "Toller Golf"]
+    },
+    {
+        "marke"  : "BMW",
+        "modell" : ["116er", "316er", "2er" ],
+        "info"   : ["Toller 116er", "Toller 316er", "Toller 2er"]
+    },
+    {
+        "marke"  : "Ford",
+        "modell" : ["Capri", "Fiesta", "Escort", "Fusion" ],
+        "info"   : ["Toller Capri", "Toller Fiesta", "Toller Escort", "Toller Fusion"]
+    },
+    {
+        "marke"  : "Fiat",
+        "modell" : ["Punto", "500" ],
+        "info"   : ["Toller Punto", "Toller 500"]
+    }
+]

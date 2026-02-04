@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="description"/>
+		<meta name="keywords" content="keywords"/>
+		<meta name="author" content="author"/>
+		<title>Website Template: Light (demo)</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" media="screen"/>
+		<style>
+			#kategorie, #rezepte {float:left;}
+			#kat, #rez {font-size:1.25em;}
+			#rezept h1 {font-size:1.75em;}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="navigation">
+
+				<div class="title">
+					<h1>Rezepte</h1>
+					<h2>- Rezepte aus aller Welt -</h2>
+				</div>
+
+				<a href="#">Vestibulum</a>
+				<a href="#">Suspendisse</a>
+				<a href="#">Elemen</a>
+				<a href="#">Maecenas</a>
+				<div class="clearer"><span></span></div>
+
+			</div>
+
+			<div class="holder_top"></div>
+
+			<div class="holder">
+
+				<div id="kategorie"></div>
+				<div id="rezepte"></div>
+				<div class="clearer"></div>
+				<div class="rezept"></div>
+				<br/><br/>
+
+			</div>
+
+			<div class="footer">
+				<div class="left">&copy; 2017 <a href="#">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a></div>
+				<div class="right">
+					<a href="http://templates.arcsin.se/">Website template</a> by <a href="https://arcsin.se/">Arcsin</a>
+				</div>
+				<div class="clearer">&nbsp;</div>
+			</div>
+
+		</div>
+
+		<script src="js/jquery-3.6.1.min.js"></script>
+		
+		<script>
+
+			$.ajax({
+				url : 'data/kategorien.php',
+				success : function(json){
+					var html = '<select id="kat">';
+					html += '<option value="1">Kategorie auswählen</option>';
+					$.each(json, function(){
+						html += '<option value="'+this.id+'">'+this.name+'</option>';
+					});
+					html += '</select>';
+					$('#kategorie').html(html);
+				}
+			});
+
+			// Achtung, dynamischer Eventhandler
+			$(document).on('change', '#kat',function(){
+				
+				var kategorie = $(this).val();
+
+				$.ajax({
+					url : 'data/rezepte.php?id='+kategorie,
+					success : function(json){
+						var html = '<select id="rez">';
+						html += '<option value="1">Rezept auswählen</option>';
+						$.each(json, function(){
+							html += '<option value="'+this.id+'">'+this.name+'</option>';
+						});
+						html += '</select>';
+						$('#rezepte').html(html);
+					}
+				});
+
+			})
+
+			$(document).on('change', '#rez', function(){
+
+				var rezept = $(this).val();
+
+				$.ajax({
+					url : 'data/rezept.php?id='+rezept,
+					success : function(json){
+
+						// Aus dem String wird ein Array
+						var zutaten   = JSON.parse(json[0].zutat);
+						var anleitung = JSON.parse(json[0].anleitung);
+
+						var html = '<br/><h1>'+json[0].name+'</h1>';
+						html += '<p><ul>';
+						$.each(zutaten, function(){
+							html += '<li>'+this+'</li>';
+						});
+						html += '</ul></p>';
+
+						html += '<p><ul>';
+						$.each(anleitung, function(){
+							html += '<li>'+this+'</li>';
+						});
+						html += '</ul></p>';
+
+						$('.rezept').html(html);
+
+					}
+				});
+
+			});
+
+		</script>
+
+	</body>
+
+</html>

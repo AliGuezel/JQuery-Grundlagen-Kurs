@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Ajax</h2>
+
+		<h2>Plain Text</h2>
+		<div id="plain"></div>
+		<hr/>
+
+		<h2>CSV</h2>
+		<div id="csv"></div>
+		<hr/>
+
+		<h2>JSON</h2>
+		<div id="json"></div>
+		<hr/>
+
+		<h2>XML</h2>
+		<div id="xml"></div>
+		<hr/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+
+		<script>
+
+			//---------------------------------------------------------------
+			//   TEXT
+			//---------------------------------------------------------------
+
+			$.ajax({
+				url : 'wiki/wiki.txt',
+				success : function(strData){
+					$('#plain').html(strData);
+				}
+			});
+
+			//---------------------------------------------------------------
+			//   CSV
+			//---------------------------------------------------------------
+
+			$.ajax({
+				url : 'wiki/wiki.csv',
+				success : function(strData){
+					var csv = $.csv.toArrays(strData);
+					$('#csv').html(csv[1][3] + '<br/>');    // Englisch
+					$('#csv').append(csv[2][5] + '<br/>');  // Geschichte
+					$('#csv').append(csv[3][2] + '<br/>');  // Religion (ev., kath.)
+				}
+			});
+
+			//---------------------------------------------------------------
+			//   JSON
+			//---------------------------------------------------------------
+
+			$.ajax({
+				url: 'wiki/wiki.json',
+				success:function(json){  // json -> array | object
+					$('#json').html(json.Inhaber.Name + '<br/>');       // Mustermann
+					$('#json').append(json.Inhaber.Vorname + '<br/>');  // Max
+					var html = '<ul>';
+					html += '<li>'+json.Inhaber.Hobbys[0]+'</li>';
+					html += '<li>'+json.Inhaber.Hobbys[1]+'</li>';
+					html += '<li>'+json.Inhaber.Hobbys[2]+'</li>';					
+					html += '</ul>';
+					$('#json').append(html);
+				}
+			});
+
+			//---------------------------------------------------------------
+			//   XML
+			//---------------------------------------------------------------
+
+			$.ajax({
+				url : 'wiki/wiki.xml',
+				success : function(doc){ // doc -> Object(#document)
+					
+					// Zugriff auf Nodes
+					var head = $('titel', doc).eq(0).text();
+					var koeln = $('eintrag', doc).eq(1).find('stichwort').eq(0).text();
+
+					// Zugriff auf Attribute
+					var nl = $('eintrag', doc).eq(2).find('stichwort').eq(0).attr('land');
+
+					$('#xml').html(head + '<br/>');    // Wikipedia Städteverzeichnis
+					$('#xml').append(koeln + '<br/>'); // Köln
+					$('#xml').append(nl + '<br/>');	   // Niederlande
+
+				}
+			});
+
+		</script>
+
+	</body>
+
+</html>

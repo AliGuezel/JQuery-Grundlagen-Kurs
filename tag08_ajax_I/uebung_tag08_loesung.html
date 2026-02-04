@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+	</head>
+	
+	<body>
+	
+		<h2>Übung</h2>
+
+		<h2>AUTO</h2>
+		<div id="auto"></div>
+		<hr/>
+
+		<h2>CD</h2>
+		<div id="cd"></div>
+		<hr/>
+
+		<h2>HOROSKOP</h2>
+		<div id="horoskop"></div>
+		<hr/>
+
+		<h2>NEWS</h2>
+		<div id="news"></div>
+		<hr/>
+
+		<h2>BUNDESLIGA</h2>
+		<div id="liga"></div>
+		<hr/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+		<script>
+
+			// ------------------------
+			// 		AUTO
+			// ------------------------
+			
+			$.ajax({
+				url : 'uebung/auto.json',
+				success : function(json){
+					var ausgabe = json[3].marke + ' - ';
+					ausgabe += json[3].modell[2] + ' - ';
+					ausgabe += json[3].info[2];
+					$('#auto').html(ausgabe);
+				}
+			});
+
+			// ------------------------
+			// 		CD
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/cd.xml',
+				success : function(doc){
+					var ausgabe = $('cd', doc).eq(3).find('title').eq(0).text() + ' - ';
+					ausgabe += $('cd', doc).eq(3).find('artist').eq(0).text();
+					$('#cd').html(ausgabe);
+				}
+			});
+
+			// ------------------------
+			// 		HOROSKOP
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/horoskop.xml',
+				success : function(doc){
+					var ausgabe = $('item', doc).eq(1).find('title').eq(0).text() + '<br/>';
+					ausgabe += $('item', doc).eq(1).find('description').eq(0).text();
+					$('#horoskop').html(ausgabe);
+				}
+			});
+
+			// ------------------------
+			// 		NEWS
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/newsticker.xml',
+				success : function(doc){
+					var ausgabe = $('item', doc).eq(10).find('title').eq(0).text() + '<br/>';
+					ausgabe += $('item', doc).eq(10).find('description').eq(0).text();
+					$('#news').html(ausgabe);
+				}
+			});
+
+			// ------------------------
+			// 		BUNDESLIGA
+			// ------------------------
+
+			$.ajax({
+				url : 'uebung/bundesliga.xml',
+				success : function(doc){
+					console.dir(doc);
+					var ausgabe = $('Match', doc).eq(4).find('Location').eq(0).find('LocationCity').eq(0).text() + ' - ';
+					ausgabe += $('Match', doc).eq(4).find('Location').eq(0).find('LocationStadium').eq(0).text();
+					$('#liga').html(ausgabe);
+				}
+			});
+
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+<!--
+* XML-format for teasering tagesschau.de-headlines. Version: 2.0
+* Release-Date:2002/02/04, last updated 2006/06/28
+*
+* Die Nutzung dieser Inhalte ist ausschliesslich nicht-kommerziellen Internet-
+* Angeboten erlaubt, die Nutzung kann jederzeit von tagesschau.de untersagt
+* werden. tagesschau.de übernimmt keinen Support, zudem wird keine Verfügbarkeit
+* dieser XML-Datei gewährleistet. Die Inhalte dürfen nicht archiviert werden.
+//-->
+	<channel>
+		<title>tagesschau.de - Die Nachrichten der ARD</title>
+		<link>http://www.tagesschau.de</link>
+		<description>tagesschau.de</description>
+		<language>de</language>
+		<copyright>tagesschau.de, Norddeutscher Rundfunk</copyright>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<ttl>30</ttl>
+		<item>
+			<title>Bezug zu Reichsbürger-Szene: Razzia gegen Schleusernetzwerk</title>
+			<link>http://www.tagesschau.de/inland/razzia-schleuser-moldauer-101.html</link>
+			<description>In einer groß angelegten Aktion ist die Bundespolizei gegen mutmaßliche Schleuser vorgegangen. Sie sollen Hunderte Moldauer illegal in Deutschland beschäftigt haben. Laut NDR, WDR und "SZ" gibt es Verbindungen in die Reichsbürgerszene.</description>
+			<guid>http://www.tagesschau.de/inland/razzia-schleuser-moldauer-101.html</guid>
+			<category>Inland</category>
+		</item>
+		<item>
+			<title>U-Boote für Ankara: Berlin setzt auf "gute Nachbarschaft"</title>
+			<link>http://www.tagesschau.de/inland/ruestungsdeal-uboote-tuerkei-101.html</link>
+			<description>Scharmützel im griechischen Grenzgebiet, der Einmarsch in Syrien: Die Türkei bricht laut Experten Völkerrecht. Trotzdem darf ThyssenKrupp U-Boote an Ankara liefern. Von Christoph Prössl.</description>
+			<guid>http://www.tagesschau.de/inland/ruestungsdeal-uboote-tuerkei-101.html</guid>
+			<category>Inland</category>
+		</item>
+		<item>
+			<title>Mindestens zwei Tote bei Zugunglück in Bayern</title>
+			<link>http://www.tagesschau.de/inland/zugunglueck-bayern-105.html</link>
+			<description>Am Bahnhof im bayerischen Aichach sind ein Personen- und ein Güterzug zusammengestoßen. Mindestens zwei Menschen starben. 14 Reisende wurden teils schwer verletzt. Die Strecke Augsburg-Ingolstadt ist gesperrt.</description>
+			<guid>http://www.tagesschau.de/inland/zugunglueck-bayern-105.html</guid>
+			<category>Inland</category>
+		</item>
+		<item>
+		<title>Bundeswehr: "Aushalten, durchhalten, verändern"</title>
+		<link>http://www.tagesschau.de/inland/suder-abschied-101.html</link>
+		<description>Katrin Suder war die starke Frau an der Seite der Verteidigungsministerin. Nun geht die streitbare Rüstungsstaatssekretärin. Ein Verlust, der von der Leyen gefährlich werden könnte. Von Christian Thiels.</description>
+		<guid>http://www.tagesschau.de/inland/suder-abschied-101.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>NSU-Prozess gegen André E.: Erst schweigsam, jetzt nervös</title>
+		<link>http://www.tagesschau.de/inland/nsu-prozess-265.html</link>
+		<description>André E. gilt als enger Vertrauter von Beate Zschäpe. Auch ihm droht im NSU-Prozess eine Haftstrafe. Heute plädieren seine Anwälte. Zuletzt war der überzeugte Neonazi nervös geworden. Von Thies Marsen.</description>
+		<guid>http://www.tagesschau.de/inland/nsu-prozess-265.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Trump will Entschluss zum Iran-Atomabkommen verkünden</title>
+		<link>http://www.tagesschau.de/ausland/trump-iran-atomabkommen-105.html</link>
+		<description>Präsident Trump steht vor der Entscheidung mit der größten Tragweite in seiner jungen politischen Karriere. Steigen die USA aus dem Atomabkommen mit dem Iran aus? Experten sind sich einig. Von Torsten Teichmann.</description>
+		<guid>http://www.tagesschau.de/ausland/trump-iran-atomabkommen-105.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Hintergrund: Was ist das iranische Raketenprogramm?</title>
+		<link>http://www.tagesschau.de/ausland/teheran-raketen-programm-101.html</link>
+		<description>Einer der Hauptgründe, warum die USA und Israel das Atomabkommen mit dem Iran platzen lassen wollen, ist das iranische Raketenprogramm. Reinhard Baumgarten erklärt, worum es dabei geht.</description>
+		<guid>http://www.tagesschau.de/ausland/teheran-raketen-programm-101.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>New Yorks Generalstaatsanwalt tritt nach Vorwürfen zurück</title>
+		<link>http://www.tagesschau.de/ausland/schneiderman-105.html</link>
+		<description>Er gehörte zu den Fürsprechern der #MeeToo-Bewegung. Jetzt hat der New Yorker Generalstaatsanwalt Schneiderman seinen Rücktritt eingereicht - Frauen werfen ihm brutale Übergriffe vor. Von Kai Clement. </description>
+		<guid>http://www.tagesschau.de/ausland/schneiderman-105.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Kommentar zu Putin: Glückwünsche der anderen Art</title>
+		<link>http://www.tagesschau.de/kommentar/putin-russland-vereidigung-101.html</link>
+		<description>Sich selbst zu inszenieren, das hat Putin perfektioniert. Da neigen selbst viele Deutsche dazu, zu vergessen, welche Politik dahinter steht. Ein Fehler, meint Georg Restle, und gratuliert auf eigene Art und Weise.</description>
+		<guid>http://www.tagesschau.de/kommentar/putin-russland-vereidigung-101.html</guid>
+		<category>Kommentar</category>
+		</item>
+		<item>
+		<title>Verhältnis EU-Russland: "Wir sind aufeinander angewiesen"</title>
+		<link>http://www.tagesschau.de/inland/verheugen-russland-putin-interview-101.html</link>
+		<description>Die Beziehungen sind gerade nicht einfach: Die EU misstraut Russland, Putin wiederum fühlt sich von den Europäern hintergangen. In den tagesthemen warnt Ex-EU-Kommissar Verheugen vor Forderungen nach einer härteren Gangart.</description>
+		<guid>http://www.tagesschau.de/inland/verheugen-russland-putin-interview-101.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Reportage aus Armenien: Eine Revolution ohne Gewalt</title>
+		<link>http://www.tagesschau.de/ausland/armenien-reportage-101.html</link>
+		<description>In Armenien steht ein Machtwechsel bevor. Heute könnte Protestführer Paschinjan neuer Regierungschef werden. Es wäre ein Erfolg für eine durchaus ungewöhnliche Protestbewegung. Von Silvia Stöber.</description>
+		<guid>http://www.tagesschau.de/ausland/armenien-reportage-101.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Hisbollah-Lager gewinnt Parlamentswahl im Libanon</title>
+		<link>http://www.tagesschau.de/ausland/libanon-163.html</link>
+		<description>Bei der Parlamentswahl im Libanon ist die schiitische Hisbollah klar stärkste Kraft geworden. Ministerpräsident Hariri musste deutliche Verluste einstecken - bleibt jedoch voraussichtlich Regierungschef.</description>
+		<guid>http://www.tagesschau.de/ausland/libanon-163.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Regierungsbildung in Italien: Neutral bis zur Neuwahl?</title>
+		<link>http://www.tagesschau.de/ausland/italien-regierung-neuwahl-101.html</link>
+		<description>Italien steht politisch still. Die Parteien schafften es nicht, sich auf eine Koalition zu einigen. Staatschef Mattarella setzt nun auf Neuwahlen und bis dahin auf eine "neutrale Regierung".</description>
+		<guid>http://www.tagesschau.de/ausland/italien-regierung-neuwahl-101.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>FAQ: Was ist dran an Dobrindts Asyl-Vorwurf?</title>
+		<link>http://www.tagesschau.de/inland/faq-zur-asyldebatte-101.html</link>
+		<description>CSU-Politiker Dobrindt sagt, in Deutschland sei eine "aggressive Anti-Abschiebe-Industrie" am Werk. Stimmt das? Wie viele Asylbewerber klagen? Wie erfolgreich sind die Einsprüche? Antworten von Günter Marks.</description>
+		<guid>http://www.tagesschau.de/inland/faq-zur-asyldebatte-101.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>GroKo-Fraktionsklausur: Ohne spitze Zungen auf der Zugspitze</title>
+		<link>http://www.tagesschau.de/inland/union-fraktionen-klausur-101.html</link>
+		<description>Offensichtlich gut gelaunt starten die Koalitionsfraktionen ihre Beratungen auf der Zugspitze. Kennenlernen will man sich und mit der Arbeit loslegen. Darum werden Konflikte zunächst im Tal gelassen. Von Ulla Fiebig.</description>
+		<guid>http://www.tagesschau.de/inland/union-fraktionen-klausur-101.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Ein bisschen "Made in Germany" für Munchs "Schrei"</title>
+		<link>http://www.tagesschau.de/kultur/rahmen-munch-101.html</link>
+		<description>Eines der berühmtesten Gemälde der Welt wird künftig von verzinktem Stahl aus Rheinland-Pfalz umfasst - Munchs "Der Schrei". Die Rahmenbauer aus einem Familienbetrieb in Kirchen fühlen sich wie Olympia-Sieger. Von Dalia Antar und Henriette von Hellborn.</description>
+		<guid>http://www.tagesschau.de/kultur/rahmen-munch-101.html</guid>
+		<category>Kultur</category>
+		</item>
+		<item>
+		<title>Steinmeier in der ARD: "Antisemitismus zerstört Heimat für alle"</title>
+		<link>http://www.tagesschau.de/inland/bab-steinmeier-demokratie-103.html</link>
+		<description>Bundespräsident Steinmeier fordert, den Kampf gegen Antisemitismus entschiedener zu führen. Im Bericht aus Berlin sprach er zudem über die Vorfälle in Ellwangen, die er nicht als Scheitern des Rechtsstaats sieht.</description>
+		<guid>http://www.tagesschau.de/inland/bab-steinmeier-demokratie-103.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Zeitgeschichte: Die Tagesschau vor 20 Jahren</title>
+		<link>http://www.tagesschau.de/inland/tsvorzwanzigjahren100.html</link>
+		<description>Wie sah die Welt vor 20 Jahren aus? Welche Themen bestimmten die politische Debatte? Wer war damals wichtig? Die Tagesschau bietet einen wertvollen Einblick in die jüngere Zeitgeschichte. Tagesschau.de dokumentiert sie Tag für Tag mit den 20-Uhr-Ausgaben.</description>
+		<guid>http://www.tagesschau.de/inland/tsvorzwanzigjahren100.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>News-Updates von Novi</title>
+		<link>https://novi.funk.net</link>
+		<description>Was ist gerade wichtig und warum? Chatbot Novi fasst morgens und abends die News zusammen. Aktuell, auf den Punkt und mit viel Roboter-Charme. Verfügbar im Facebook Messenger und als Web-App. Ein Angebot von funk und tagesschau.</description>
+		<guid>https://novi.funk.net</guid>
+		<category></category>
+		</item>
+		<item>
+		<title>Urteil: Todesstrafe ausgesetzt - Abschiebung möglich</title>
+		<link>http://www.tagesschau.de/inland/gefaehrder-todesstrafe-101.html</link>
+		<description>Im konkreten Fall geht es um einen Tunesier, doch die Entscheidung gilt als Musterfall: Gefährder dürfen auch dann abgeschoben werden, wenn in ihrem Heimatland die Todesstrafe gilt. Diese muss jedoch ausgesetzt sein.</description>
+		<guid>http://www.tagesschau.de/inland/gefaehrder-todesstrafe-101.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Deutsche Bahn: 97.000 Züge kamen nie am Zielbahnhof an</title>
+		<link>http://www.tagesschau.de/wirtschaft/bahn-zugausfaelle-101.html</link>
+		<description>Ein Zug verlässt seinen Startbahnhof - kommt aber nie am Ziel an. Das ist bei der Deutschen Bahn gar nicht so ungewöhnlich. Die Zahl sämtlicher ausgefallener Züge ist sogar noch höher.</description>
+		<guid>http://www.tagesschau.de/wirtschaft/bahn-zugausfaelle-101.html</guid>
+		<category>Wirtschaft</category>
+		</item>
+		<item>
+		<title>Haft nicht angetreten:  Holocaust-Leugnerin verhaftet</title>
+		<link>https://www.ndr.de/nachrichten/niedersachsen/oldenburg_ostfriesland/Holocaust-Leugnerin-Haverbeck-festgenommen,haverbeck212.html</link>
+		<description>Die Holocaust-Leugnerin Haverbeck hatte ihre zweijährige Haftstrafe wegen Volksverhetzung nicht angetreten. Jetzt wurde die 89-Jährige im ostwestfälischen Vlotho festgenommen und ins Gefängnis gebracht.</description>
+		<guid>https://www.ndr.de/nachrichten/niedersachsen/oldenburg_ostfriesland/Holocaust-Leugnerin-Haverbeck-festgenommen,haverbeck212.html</guid>
+		<category>Inland</category>
+		</item>
+		<item>
+		<title>Athen: Freispruch für spanische Flüchtlingshelfer</title>
+		<link>http://www.tagesschau.de/ausland/feuerwehrleute-gericht-103.html</link>
+		<description>Drei spanische Feuerwehrleute waren als Flüchtlingshelfer vor der Insel Lesbos im Einsatz. Dafür drohten ihnen zehn Jahre Haft. Doch ein griechisches Gericht entschied anders. Von Oliver Neuroth.</description>
+		<guid>http://www.tagesschau.de/ausland/feuerwehrleute-gericht-103.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Mehr Flüchtlinge erreichen Griechenland</title>
+		<link>http://www.tagesschau.de/ausland/flucht-187.html</link>
+		<description>Die Zahl der Flüchtlinge, die nach Europa kommen, ist zuletzt stetig gesunken. Doch nun wird an manchen Außengrenzen wieder ein leichter Anstieg  der Ankünfte verzeichnet - trotz Abkommen mit Drittländern. Von Karin Bensch. </description>
+		<guid>http://www.tagesschau.de/ausland/flucht-187.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Mutmaßlich entführter Vietnamese zieht Berufung zurück</title>
+		<link>http://www.tagesschau.de/ausland/thanh-berufung-zurueckgezogen-101.html</link>
+		<description>Zu zwei Mal lebenslang war der mutmaßlich aus Deutschland entführte Vietnamese Thanh verurteilt worden. Dagegen legte er Berufung ein - die er jetzt überraschend zurückzieht. Was könnten die Gründe sein?</description>
+		<guid>http://www.tagesschau.de/ausland/thanh-berufung-zurueckgezogen-101.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Prag verbietet Radfahren im Stadtzentrum</title>
+		<link>http://www.tagesschau.de/ausland/prag-fahrradverbot-101.html</link>
+		<description>Während viele Städte ihre Radwege ausbauen, macht Prag das Gegenteil - und sperrt das Zentrum für Fahrradfahrer. Die Begründung der Verwaltung sorgt bei vielen für Kopfschütteln. Von Kilian Kirchgeßner.</description>
+		<guid>http://www.tagesschau.de/ausland/prag-fahrradverbot-101.html</guid>
+		<category>Ausland</category>
+		</item>
+		<item>
+		<title>Siemens schickt Zehntausende in Zwangspause</title>
+		<link>http://www.tagesschau.de/wirtschaft/siemens-177.html</link>
+		<description>Siemens spricht von einem "beispiellosen Markteinbruch" in der Kraftwerkssparte und will die Kosten senken. Jetzt verordnet der Konzern Betrieben eine Zwangspause - Mitarbeiter werden in den Urlaub geschickt.</description>
+		<guid>http://www.tagesschau.de/wirtschaft/siemens-177.html</guid>
+		<category>Wirtschaft</category>
+		</item>
+	</channel>
+</rss>
